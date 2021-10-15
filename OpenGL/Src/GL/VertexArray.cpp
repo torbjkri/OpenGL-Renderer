@@ -6,11 +6,12 @@
 VertexArray::VertexArray()
 {
 	glGenVertexArrays(1, &m_RendererID);
-}
+}	
 
 // Links a VBO Attribute such as a position or color to the VertexArray
-void VertexArray::LinkAttrib(VertexBuffer& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset)
+void VertexArray::LinkAttrib(VertexBuffer& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizei stride, void* offset)
 {
+	Bind();
 	VBO.Bind();
 	glVertexAttribPointer(layout, numComponents, type, GL_FALSE, stride, offset);
 	glEnableVertexAttribArray(layout);
@@ -18,13 +19,13 @@ void VertexArray::LinkAttrib(VertexBuffer& VBO, GLuint layout, GLuint numCompone
 }
 
 // Binds the VertexArray
-void VertexArray::Bind()
+void VertexArray::Bind() const
 {
 	glBindVertexArray(m_RendererID);
 }
 
 // Unbinds the VertexArray
-void VertexArray::Unbind()
+void VertexArray::Unbind() const
 {
 	glBindVertexArray(0);
 }

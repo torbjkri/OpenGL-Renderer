@@ -9,12 +9,9 @@
 class RenderableObject
 {
 public:
-	RenderableObject() = default;
-	virtual ~RenderableObject();
-
 
 	/* Easier for low level application*/
-	virtual void Bind();
-	virtual void Unbind();
+	virtual void Bind() const = 0;
+	virtual void Unbind() const = 0;
 };
 

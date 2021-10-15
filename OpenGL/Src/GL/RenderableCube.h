@@ -9,8 +9,8 @@ public:
 	RenderableCube(const std::vector<TextureVertex> &vertices, const std::vector<TriangleIndices>& indices);
 	~RenderableCube();
 
-	void Bind() override;
-	void Unbind() override;
+	void Bind() const override;
+	void Unbind() const override;
 
 private:
 	VertexArray m_VAO;

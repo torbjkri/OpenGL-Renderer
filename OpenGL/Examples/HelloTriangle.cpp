@@ -25,6 +25,8 @@
 
 #include <GL/Texture.h>
 
+#include <GL/RenderableObject.h>
+
 
 /*
 First example

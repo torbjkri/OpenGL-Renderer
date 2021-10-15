@@ -11,11 +11,11 @@ public:
 	VertexArray();
 
 	// Links a VBO Attribute such as a position or color to the VertexArray
-	void LinkAttrib(VertexBuffer& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset);
+	void LinkAttrib(VertexBuffer& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizei stride, void* offset);
 	// Binds the VertexArray
-	void Bind();
+	void Bind() const;
 	// Unbinds the VertexArray
-	void Unbind();
+	void Unbind() const;
 	// Deletes the VertexArray
 	void Delete();
 };
