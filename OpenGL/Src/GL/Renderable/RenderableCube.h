@@ -1,13 +1,12 @@
 #pragma once
 #include "RenderableObject.h"
 
-#include "VerticeStructs.h"
+#include <GL/VerticeStructs.h>
 
 class RenderableCube : public RenderableObject
 {
 public:
 	RenderableCube(const std::vector<TextureVertex> &vertices, const std::vector<TriangleIndices>& indices);
-	~RenderableCube();
 
 	void Bind() const override;
 	void Unbind() const override;

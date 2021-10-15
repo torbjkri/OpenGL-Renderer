@@ -25,8 +25,8 @@
 
 #include <GL/Texture.h>
 
-#include <GL/RenderableObject.h>
-#include <GL/RenderableCube.h>
+#include <GL/Renderable/RenderableObject.h>
+#include <GL/Renderable/RenderableCube.h>
 
 #include <GL/VerticeStructs.h>
 
@@ -103,18 +103,7 @@ int HelloTriangle()
     };
 
 
-    VertexArray VAO2;
-    VAO2.Bind();
-
-    VertexBuffer VBO2(verts);
-    ElementBuffer EBO2(idxs);
-
-    VAO2.LinkAttrib(VBO2, 0, 3, GL_FLOAT, 5 * sizeof(float), (void*)0);
-    VAO2.LinkAttrib(VBO2, 1, 2, GL_FLOAT, 5 * sizeof(float), (void*)(3*sizeof(float)));
-
-    VAO2.Unbind();
-    VBO2.Unbind();
-    EBO2.Unbind();
+    RenderableCube cube(verts, idxs);
 
     Texture smiley = Texture("Resources\\Textures\\wall.jpg");
 
@@ -139,7 +128,7 @@ int HelloTriangle()
             glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         texture_shader.Bind();
-        VAO2.Bind();
+        cube.Bind();
         smiley.Bind(0);
         texture_shader.SetUniform1i("u_Texture", 0);
         texture_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());

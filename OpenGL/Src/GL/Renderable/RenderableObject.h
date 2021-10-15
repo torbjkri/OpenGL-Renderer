@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
 
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "ElementBuffer.h"
+#include <GL/VertexArray.h>
+#include <GL/VertexBuffer.h>
+#include <GL/ElementBuffer.h>
 
 
 class RenderableObject

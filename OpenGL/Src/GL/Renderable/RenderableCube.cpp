@@ -1,9 +1,9 @@
 #include "RenderableCube.h"
 #include <vector>
 
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "ElementBuffer.h"
+#include <GL/VertexArray.h>
+#include <GL/VertexBuffer.h>
+#include <GL/ElementBuffer.h>
 
 RenderableCube::RenderableCube(const std::vector<TextureVertex>& vertices, const std::vector<TriangleIndices>& indices)
 	: m_VBO(vertices)
