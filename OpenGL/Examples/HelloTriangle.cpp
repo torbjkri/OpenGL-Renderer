@@ -26,6 +26,9 @@
 #include <GL/Texture.h>
 
 #include <GL/RenderableObject.h>
+#include <GL/RenderableCube.h>
+
+#include <GL/VerticeStructs.h>
 
 
 /*
@@ -62,6 +65,7 @@ int HelloTriangle()
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
+
     std::vector<float> vertices = {
          0.5f,  0.5f, 0.0f,  // top right
          0.5f, -0.5f, 0.0f,  // bottom right
@@ -86,22 +90,24 @@ int HelloTriangle()
     EBO.Unbind();
 
 
-    std::vector<float> vertices2 = {
-         1.5f,  1.5f, 0.0f, 1.0f, 1.0f, // top right
-         1.5f,  1.0f, 0.0f, 1.0f, 0.0f, // bottom right
-         1.0f,  1.0f, 0.0f, 0.0f, 0.0f, // bottom left
-         1.0f,  1.5f, 0.0f, 0.0f, 1.0f // top left 
+    std::vector<TextureVertex> verts = {
+        {{1.5f, 1.5f, 0.0f}, {1.0f, 1.0f}},
+        {{1.5f, 1.0f, 0.0f}, {1.0f, 0.0f}},
+        {{1.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
+        {{1.0f, 1.5f, 0.0f}, {0.0f, 1.0f}},
     };
-    std::vector<GLuint> indices2 = {  // note that we start from 0!
-        0, 1, 3,  // first Triangle
-        1, 2, 3   // second Triangle
+
+    std::vector<TriangleIndices> idxs = {
+        {{0, 1, 3}},
+        {{1, 2, 3}}
     };
+
 
     VertexArray VAO2;
     VAO2.Bind();
 
-    VertexBuffer VBO2(vertices2);
-    ElementBuffer EBO2(indices2);
+    VertexBuffer VBO2(verts);
+    ElementBuffer EBO2(idxs);
 
     VAO2.LinkAttrib(VBO2, 0, 3, GL_FLOAT, 5 * sizeof(float), (void*)0);
     VAO2.LinkAttrib(VBO2, 1, 2, GL_FLOAT, 5 * sizeof(float), (void*)(3*sizeof(float)));
