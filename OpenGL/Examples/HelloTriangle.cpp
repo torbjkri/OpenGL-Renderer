@@ -25,8 +25,8 @@
 
 #include <GL/Texture.h>
 
-#include <GL/Renderable/RenderableObject.h>
-#include <GL/Renderable/RenderableCube.h>
+#include <GL/Renderable/ObjectRenderer.h>
+#include <GL/Renderable/CubeRenderer.h>
 
 #include <GL/VerticeStructs.h>
 
@@ -97,25 +97,9 @@ int HelloTriangle()
     VBO.Unbind();
     EBO.Unbind();
 
+    CubeRenderer cubeRenderer(ResourceManager::GetInstance()->GetShader("texture"));
 
-    std::vector<TextureVertex> verts = {
-        {{1.5f, 1.5f, 0.0f}, {1.0f, 1.0f}},
-        {{1.5f, 1.0f, 0.0f}, {1.0f, 0.0f}},
-        {{1.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
-        {{1.0f, 1.5f, 0.0f}, {0.0f, 1.0f}},
-    };
-
-    std::vector<TriangleIndices> idxs = {
-        {{0, 1, 3}},
-        {{1, 2, 3}}
-    };
-
-
-    RenderableCube cube(verts, idxs);
-
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
-
-    Texture smiley = ResourceManager::GetInstance()->GetTexture("wall");
+    Texture wall = ResourceManager::GetInstance()->GetTexture("wall");
 
     bool drawRectangle = true;
 
@@ -137,13 +121,8 @@ int HelloTriangle()
         if (drawRectangle)
             glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-        texture_shader.Bind();
-        cube.Bind();
-        smiley.Bind(0);
-        texture_shader.SetUniform1i("u_Texture", 0);
-        texture_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
-
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    
+        cubeRenderer.Draw(wall, camera.GetProjectionView());
 
 
         ImGui::Begin("My Window");

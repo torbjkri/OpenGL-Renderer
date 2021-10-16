@@ -9,6 +9,7 @@ class VertexBuffer
 {
 public:
 	// Constructor that generates a Vertex Buffer Object and links it to vertices
+	VertexBuffer() = default;
 	VertexBuffer(const std::vector<float> vertices);
 	VertexBuffer(const std::vector<TextureVertex>& vertices);
 

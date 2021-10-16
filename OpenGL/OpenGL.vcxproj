@@ -164,6 +164,7 @@
     <ClCompile Include="Examples\HelloTriangle.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
+    <ClCompile Include="Src\GL\Renderable\CubeRenderer.cpp" />
     <ClCompile Include="Src\GL\Renderable\RenderableCube.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
     <ClCompile Include="Src\GL\Shader.cpp" />
@@ -190,8 +191,8 @@
     <ClInclude Include="Examples\HelloTriangle.hpp" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\ElementBuffer.h" />
-    <ClInclude Include="Src\GL\Renderable\RenderableObject.h" />
-    <ClInclude Include="Src\GL\Renderable\RenderableCube.h" />
+    <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />
+    <ClInclude Include="Src\GL\Renderable\CubeRenderer.h" />
     <ClInclude Include="Src\GL\ResourceManager.h" />
     <ClInclude Include="Src\GL\Shader.h" />
     <ClInclude Include="Src\GL\Texture.h" />

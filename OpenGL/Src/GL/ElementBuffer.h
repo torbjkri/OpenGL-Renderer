@@ -16,7 +16,7 @@ public:
 	ElementBuffer(const std::vector<TriangleIndices>& indices);
 
 	// Delete default constructor
-	ElementBuffer() = delete;
+	ElementBuffer() = default;
 
 	// Bind the Element Buffer Object
 	void Bind();

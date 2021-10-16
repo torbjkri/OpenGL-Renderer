@@ -72,10 +72,13 @@
     <ClCompile Include="Src\GL\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Renderable\RenderableCube.cpp">
+    <ClCompile Include="Src\GL\Renderable\CubeRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\GL\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GL\Renderable\RenderableCube.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,10 +140,10 @@
     <ClInclude Include="Src\GL\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Renderable\RenderableObject.h">
+    <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Renderable\RenderableCube.h">
+    <ClInclude Include="Src\GL\Renderable\CubeRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\VerticeStructs.h">
