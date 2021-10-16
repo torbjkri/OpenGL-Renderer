@@ -23,6 +23,7 @@ private:
 	int GetUniformLocation(const std::string& name) const;
 
 public:
+	Shader() = default;
 	Shader(const std::string& filename);
 	~Shader();
 

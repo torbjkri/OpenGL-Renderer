@@ -11,6 +11,7 @@ private:
 	int m_Height;
 
 public:
+	Texture() = default;
 	Texture(const std::string filePath);
 	~Texture();
 

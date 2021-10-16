@@ -30,6 +30,8 @@
 
 #include <GL/VerticeStructs.h>
 
+#include <GL/ResourceManager.h>
+
 
 /*
 First example
@@ -105,7 +107,9 @@ int HelloTriangle()
 
     RenderableCube cube(verts, idxs);
 
-    Texture smiley = Texture("Resources\\Textures\\wall.jpg");
+    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+
+    Texture smiley = ResourceManager::GetInstance()->GetTexture("wall");
 
     bool drawRectangle = true;
 
