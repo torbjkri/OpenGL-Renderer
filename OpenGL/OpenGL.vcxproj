@@ -171,9 +171,6 @@
     <ClCompile Include="Src\GL\VertexArray.cpp" />
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp" />
     <ClCompile Include="Src\GL\GLContext.cpp" />
-    <ClCompile Include="Vendor\fmt\fmt.cc" />
-    <ClCompile Include="Vendor\fmt\format.cc" />
-    <ClCompile Include="Vendor\fmt\os.cc" />
     <ClCompile Include="Vendor\glad\glad.c" />
     <ClCompile Include="Main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glad\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src</AdditionalIncludeDirectories>
@@ -203,19 +200,6 @@
     <ClInclude Include="Src\GL\VerticeStructs.h" />
     <ClInclude Include="Src\GUI\ImGuiWrapper.h" />
     <ClInclude Include="Src\GL\GLContext.h" />
-    <ClInclude Include="Vendor\fmt\args.h" />
-    <ClInclude Include="Vendor\fmt\chrono.h" />
-    <ClInclude Include="Vendor\fmt\color.h" />
-    <ClInclude Include="Vendor\fmt\compile.h" />
-    <ClInclude Include="Vendor\fmt\core.h" />
-    <ClInclude Include="Vendor\fmt\format-inl.h" />
-    <ClInclude Include="Vendor\fmt\format.h" />
-    <ClInclude Include="Vendor\fmt\locale.h" />
-    <ClInclude Include="Vendor\fmt\os.h" />
-    <ClInclude Include="Vendor\fmt\ostream.h" />
-    <ClInclude Include="Vendor\fmt\printf.h" />
-    <ClInclude Include="Vendor\fmt\ranges.h" />
-    <ClInclude Include="Vendor\fmt\xchar.h" />
     <ClInclude Include="Vendor\ImGui\imconfig.h" />
     <ClInclude Include="Vendor\ImGui\imgui.h" />
     <ClInclude Include="Vendor\ImGui\imgui_impl_glfw.h" />

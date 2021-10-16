@@ -25,10 +25,10 @@ private:
 public:
 	Shader() = default;
 	Shader(const std::string& filename);
-	~Shader();
 
 	void Bind() const;
 	void Unbind() const;
+	void Delete() const;
 
 	// Set uniforms
 	void SetUniform1i(const std::string& name, const int value);

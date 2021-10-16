@@ -60,9 +60,15 @@ int HelloTriangle()
 
 
     Camera camera(context.GetWindow());
-    Shader color_shader("Resources\\Shaders\\BasicColor.shader");
+
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\BasicColor.shader", "color");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\BasicTexture.shader", "texture");
+    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+
+    Shader color_shader = ResourceManager::GetInstance()->GetShader("color");
     color_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
-    Shader texture_shader("Resources\\Shaders\\BasicTexture.shader");
+
+    Shader texture_shader = ResourceManager::GetInstance()->GetShader("texture");
     texture_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes

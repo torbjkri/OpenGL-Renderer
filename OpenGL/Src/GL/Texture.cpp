@@ -6,6 +6,9 @@
 #include <filesystem>
 #include <cassert>
 
+#include <iostream>
+#include <format>
+
 namespace fs = std::filesystem;
 
 Texture::Texture(const std::string filePath)
@@ -32,11 +35,8 @@ Texture::Texture(const std::string filePath)
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	stbi_image_free(data);
-}
 
-Texture::~Texture()
-{
-	glDeleteTextures(1, &m_RendererID);
+	assert(m_RendererID > 0);
 }
 
 void Texture::Bind(const unsigned int slot) const
@@ -48,4 +48,9 @@ void Texture::Bind(const unsigned int slot) const
 void Texture::Unbind() const
 {
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void Texture::Delete() const
+{
+	glDeleteTextures(1, &m_RendererID);
 }

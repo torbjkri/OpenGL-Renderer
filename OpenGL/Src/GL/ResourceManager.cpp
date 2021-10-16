@@ -34,14 +34,18 @@ void ResourceManager::LoadShader(const std::string filePath, const std::string n
 	s_Shaders[name] = Shader(filePath);
 }
 
+void ResourceManager::Clear() const
+{
+	for (auto& it : s_Textures)
+		it.second.Delete();
+
+	for (auto& it : s_Shaders)
+		it.second.Delete();
+}
+
 Texture ResourceManager::GetTexture(const std::string name)
 {
-	if (s_Textures.contains(name))
-		return s_Textures.at(name);
-	else {
-		std::cout << std::format("ResourceManager: Texture {} not loaded");
-		return Texture();
-	}
+	return s_Textures[name];
 }
 
 Shader ResourceManager::GetShader(const std::string name)

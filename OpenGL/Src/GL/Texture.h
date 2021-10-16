@@ -13,9 +13,9 @@ private:
 public:
 	Texture() = default;
 	Texture(const std::string filePath);
-	~Texture();
 
 	void Bind(const unsigned int slot) const;
 	void Unbind() const;
+	void Delete() const;
 };
 

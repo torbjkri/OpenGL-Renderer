@@ -24,6 +24,7 @@ public:
 
 	void LoadTexture(const std::string filePath, const std::string name);
 	void LoadShader(const std::string filePath, const std::string name);
+	void Clear() const;
 	
 	Texture GetTexture(const std::string name);
 	Shader GetShader(const std::string name);

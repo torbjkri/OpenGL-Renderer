@@ -21,11 +21,6 @@ Shader::Shader(const std::string& filepath)
     m_RendererID = CreateShader(source.VertexSource, source.FragmentSource);
 }
 
-Shader::~Shader()
-{
-    glDeleteProgram(0);
-}
-
 ShaderProgramSource Shader::ParseShader(const std::string& filePath)
 {
     std::string projDir = (fs::current_path()).string() + "\\";
@@ -121,6 +116,11 @@ void Shader::Bind() const
 void Shader::Unbind() const
 {
     glUseProgram(0);
+}
+
+void Shader::Delete() const
+{
+    glDeleteProgram(m_RendererID);
 }
 
 void Shader::SetUniform1i(const std::string& name, const int value)
