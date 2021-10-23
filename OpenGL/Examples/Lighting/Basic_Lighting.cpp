@@ -62,11 +62,15 @@ int Basic_Lighting()
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Basic\\BasicColor.shader", "color");
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Basic\\BasicTexture.shader", "texture");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.shader", "color");
    
-    TextureCube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"));
+    ColorCube light(ResourceManager::GetInstance()->GetShader("color"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
+    light.scale_ = 0.3f;
+
+    ColorCube cube(ResourceManager::GetInstance()->GetShader("color"), glm::vec4(1.0f, 0.5f, 0.31f, 1.0f));
+    cube.position_ = glm::vec3(0.0f, -1.0f, -2.0f);
+
 
 
     bool drawRectangle = true;
@@ -83,6 +87,7 @@ int Basic_Lighting()
 
 
         ObjectRenderer::Draw(cube, camera.GetProjectionView());
+        ObjectRenderer::Draw(light, camera.GetProjectionView());
 
 
         ImGui::Begin("My Window");

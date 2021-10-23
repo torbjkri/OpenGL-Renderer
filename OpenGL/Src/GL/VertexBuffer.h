@@ -12,6 +12,7 @@ public:
 	VertexBuffer() = default;
 	VertexBuffer(const std::vector<float> vertices);
 	VertexBuffer(const std::vector<TextureVertex>& vertices);
+	VertexBuffer(const std::vector<PositionVertex>& vertices);
 
 	// Binds the VertexBuffer
 	void Bind();

@@ -20,6 +20,7 @@ struct RenderableObject {
 
 	glm::vec3 position_ =  glm::vec3(0.0f, 0.0f, 0.0);
 	glm::mat4 model_mat_ = glm::mat4(1.0f);
+	float scale_ = 1.0f;
 
 	RenderableObject(Shader shader) : shader_(shader) {}
 	virtual ~RenderableObject() = default;
@@ -34,17 +35,20 @@ struct Cube : RenderableObject {
 	
 	Cube(Shader shader)
 		: RenderableObject(shader)
-	{ InitRenderData(); };
-
-	// Set up default render data
-	void InitRenderData() override;
+	{}
 
 };
 
 struct ColorCube : Cube {
 	glm::vec4 color_;
 
-	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color) {}
+	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color)
+	{
+		InitRenderData();
+	}
+
+	// Set up default render data
+	void InitRenderData() override;
 
 	void Bind() const override;
 	void Unbind() const override;
@@ -53,7 +57,13 @@ struct ColorCube : Cube {
 struct TextureCube : Cube {
 	Texture texture_;
 
-	TextureCube(Shader shader, Texture texture) : Cube(shader), texture_(texture) {}
+	TextureCube(Shader shader, Texture texture) : Cube(shader), texture_(texture)
+	{
+		InitRenderData();
+	}
+
+	// Set up default render data
+	void InitRenderData() override;
 
 	void Bind() const override;
 	void Unbind() const override;
