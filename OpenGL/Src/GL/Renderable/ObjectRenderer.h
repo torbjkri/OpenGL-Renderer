@@ -1,15 +1,15 @@
 #pragma once
 #include <vector>
 
-#include <GL/Shader.h>
+#include "Objects.h"
+
+#include <glm/mat4x4.hpp>
+
+struct Cube;
 
 class ObjectRenderer
 {
 public: 
-	ObjectRenderer(Shader shader) : m_Shader(shader) {}
-
-protected:
-	virtual void InitRenderData() = 0;
-	Shader m_Shader;
+	static void Draw(const Cube& cube, const glm::mat4 projection_view);
 };
 

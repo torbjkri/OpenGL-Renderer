@@ -31,13 +31,13 @@ public:
 	void Delete() const;
 
 	// Set uniforms
-	void SetUniform1i(const std::string& name, const int value);
-	void SetUniform1f(const std::string& name, const float value);
-	void SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4);
+	void SetUniform1i(const std::string& name, const int value) const;
+	void SetUniform1f(const std::string& name, const float value) const;
+	void SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4) const;
 
-	void SetUniform4fv(const std::string& name, const int count, const std::vector<float> data);
-	void SetUniform4fv(const std::string& name, const int count, const float * data);
+	void SetUniform4fv(const std::string& name, const int count, const std::vector<float> data) const;
+	void SetUniform4fv(const std::string& name, const int count, const float * data) const;
 
-	void SetUniformMatrix4fv(const std::string& name, const int count, glm::mat4 mat);
+	void SetUniformMatrix4fv(const std::string& name, const int count, glm::mat4 mat) const;
 };
 

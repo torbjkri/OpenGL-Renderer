@@ -26,7 +26,7 @@
 #include <GL/Texture.h>
 
 #include <GL/Renderable/ObjectRenderer.h>
-#include <GL/Renderable/CubeRenderer.h>
+#include <GL/Renderable/Objects.h>
 
 #include <GL/VerticeStructs.h>
 
@@ -64,42 +64,9 @@ int HelloTriangle()
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\BasicColor.shader", "color");
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\BasicTexture.shader", "texture");
     ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+   
+    Cube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"));
 
-    Shader color_shader = ResourceManager::GetInstance()->GetShader("color");
-    color_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
-
-    Shader texture_shader = ResourceManager::GetInstance()->GetShader("texture");
-    texture_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
-
-    // set up vertex data (and buffer(s)) and configure vertex attributes
-    // ------------------------------------------------------------------
-
-    std::vector<float> vertices = {
-         0.5f,  0.5f, 0.0f,  // top right
-         0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f,  0.5f, 0.0f   // top left 
-    };
-    std::vector<GLuint> indices = {  // note that we start from 0!
-        0, 1, 3,  // first Triangle
-        1, 2, 3   // second Triangle
-    };
-
-    VertexArray VAO;
-    VAO.Bind();
-
-    VertexBuffer VBO(vertices);
-    ElementBuffer EBO(indices);
-
-    VAO.LinkAttrib(VBO, 0, 3, GL_FLOAT, 3 * sizeof(float), (void*)0);
-
-    VAO.Unbind();
-    VBO.Unbind();
-    EBO.Unbind();
-
-    CubeRenderer cubeRenderer(ResourceManager::GetInstance()->GetShader("texture"));
-
-    Texture wall = ResourceManager::GetInstance()->GetTexture("wall");
 
     bool drawRectangle = true;
 
@@ -113,16 +80,8 @@ int HelloTriangle()
 
         camera.ProcessInput(context.GetWindow());
 
-        color_shader.Bind();
-        VAO.Bind();
-        color_shader.SetUniform1f("u_Size", size);
-        color_shader.SetUniform4fv("u_Color", 1, color);
-        color_shader.SetUniformMatrix4fv("u_ProjectionView", 1, camera.GetProjectionView());
-        if (drawRectangle)
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-    
-        cubeRenderer.Draw(wall, camera.GetProjectionView());
+        ObjectRenderer::Draw(cube, camera.GetProjectionView());
 
 
         ImGui::Begin("My Window");

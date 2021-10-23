@@ -72,13 +72,13 @@
     <ClCompile Include="Src\GL\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Renderable\CubeRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\GL\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Renderable\RenderableCube.cpp">
+    <ClCompile Include="Src\GL\Renderable\Objects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -143,13 +143,13 @@
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Renderable\CubeRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Src\GL\VerticeStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GL\Renderable\Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

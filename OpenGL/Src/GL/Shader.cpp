@@ -123,42 +123,42 @@ void Shader::Delete() const
     glDeleteProgram(m_RendererID);
 }
 
-void Shader::SetUniform1i(const std::string& name, const int value)
+void Shader::SetUniform1i(const std::string& name, const int value) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
         glProgramUniform1i(m_RendererID, location, value);
 }
 
-void Shader::SetUniform1f(const std::string& name, const float value)
+void Shader::SetUniform1f(const std::string& name, const float value) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
         glProgramUniform1f(m_RendererID, location, value);
 }
 
-void Shader::SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4)
+void Shader::SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
         glProgramUniform4f(m_RendererID, location, v1, v2, v3, v4);
 }
 
-void Shader::SetUniform4fv(const std::string& name, const int count, const std::vector<float> data)
+void Shader::SetUniform4fv(const std::string& name, const int count, const std::vector<float> data) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
         glProgramUniform4fv(m_RendererID, location, count, &data[0]);
 }
 
-void Shader::SetUniform4fv(const std::string& name, const int count, const float * data)
+void Shader::SetUniform4fv(const std::string& name, const int count, const float * data) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
         glProgramUniform4fv(m_RendererID, location, count, data);
 }
 
-void Shader::SetUniformMatrix4fv(const std::string& name, const int count, glm::mat4 matrix)
+void Shader::SetUniformMatrix4fv(const std::string& name, const int count, glm::mat4 matrix) const
 {
     int location = GetUniformLocation(name);
     if (location != -1)
