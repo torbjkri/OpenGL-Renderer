@@ -70,7 +70,7 @@ int Basic_Lighting()
     light.scale_ = 0.3f;
 
     ColorCube cube(ResourceManager::GetInstance()->GetShader("color"), glm::vec4(1.0f, 0.5f, 0.31f, 1.0f));
-    cube.position_ = glm::vec3(0.0f, -1.0f, -2.0f);
+    cube.position_ = glm::vec3(2.0f, -2.0f, -2.0f);
 
 
 

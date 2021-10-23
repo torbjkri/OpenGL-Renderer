@@ -19,7 +19,7 @@ struct RenderableObject {
 	ElementBuffer ebo_;
 
 	glm::vec3 position_ =  glm::vec3(0.0f, 0.0f, 0.0);
-	glm::mat4 model_mat_ = glm::mat4(1.0f);
+	glm::mat4 orientation_mat_ = glm::mat4(1.0f);
 	float scale_ = 1.0f;
 
 	RenderableObject(Shader shader) : shader_(shader) {}
