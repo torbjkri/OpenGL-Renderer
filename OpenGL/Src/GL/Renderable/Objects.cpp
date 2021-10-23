@@ -84,7 +84,7 @@ void ColorCube::Bind() const
 	vao_.Bind();
 	shader_.Bind();
 	shader_.SetUniformMatrix4fv("u_Model", 1, model_mat_);
-	shader_.SetUniform4f("u_Color", color_.x, color_.y, color_.z, color_.w);
+	shader_.SetUniform3f("u_ObjectColor", color_.x, color_.y, color_.z);
 }
 
 void ColorCube::Unbind() const

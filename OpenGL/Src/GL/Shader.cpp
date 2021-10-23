@@ -137,6 +137,20 @@ void Shader::SetUniform1f(const std::string& name, const float value) const
         glProgramUniform1f(m_RendererID, location, value);
 }
 
+void Shader::SetUniform3f(const std::string& name, const float v1, const float v2, const float v3) const
+{
+    int location = GetUniformLocation(name);
+    if (location != -1)
+        glProgramUniform3f(m_RendererID, location, v1, v2, v3);
+}
+
+void Shader::SetUniform3fv(const std::string& name, const int count, const float * data) const
+{
+    int location = GetUniformLocation(name);
+    if (location != -1)
+        glProgramUniform3fv(m_RendererID, location, count, data);
+}
+
 void Shader::SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4) const
 {
     int location = GetUniformLocation(name);

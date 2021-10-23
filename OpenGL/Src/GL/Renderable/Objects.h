@@ -40,7 +40,7 @@ struct Cube : RenderableObject {
 };
 
 struct ColorCube : Cube {
-	glm::vec4 color_;
+	glm::vec3 color_;
 
 	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color)
 	{

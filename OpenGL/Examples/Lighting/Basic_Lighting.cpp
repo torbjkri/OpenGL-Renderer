@@ -63,8 +63,9 @@ int Basic_Lighting()
     Camera camera(context.GetWindow());
 
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.shader", "color");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.shader", "light");
    
-    ColorCube light(ResourceManager::GetInstance()->GetShader("color"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    ColorCube light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
@@ -86,7 +87,7 @@ int Basic_Lighting()
         camera.ProcessInput(context.GetWindow());
 
 
-        ObjectRenderer::Draw(cube, camera.GetProjectionView());
+        ObjectRenderer::Draw(cube, light.color_, camera.GetProjectionView());
         ObjectRenderer::Draw(light, camera.GetProjectionView());
 
 

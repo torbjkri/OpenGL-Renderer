@@ -164,6 +164,7 @@
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
     <None Include="Resources\Shaders\Lighting\BasicColor.shader" />
     <None Include="Resources\Shaders\Lighting\BasicTexture.shader" />
+    <None Include="Resources\Shaders\Lighting\Light.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">
