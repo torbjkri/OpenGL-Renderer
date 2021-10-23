@@ -1,4 +1,4 @@
-#include "Examples/HelloTriangle.hpp"
+#include "Examples/HelloTriangle/HelloTriangle.hpp"
 
 
 

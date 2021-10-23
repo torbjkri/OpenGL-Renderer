@@ -161,7 +161,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Examples\HelloTriangle.cpp" />
+    <ClCompile Include="Examples\HelloTriangle\HelloTriangle.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
@@ -188,7 +188,7 @@
     <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Examples\HelloTriangle.hpp" />
+    <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\ElementBuffer.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />
@@ -213,8 +213,8 @@
     <ClInclude Include="Vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shaders\BasicColor.shader" />
-    <None Include="Resources\Shaders\BasicTexture.shader" />
+    <None Include="Resources\Shaders\Basic\BasicColor.shader" />
+    <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png" />
