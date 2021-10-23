@@ -162,6 +162,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Examples\HelloTriangle\HelloTriangle.cpp" />
+    <ClCompile Include="Examples\Lighting\Basic_Lighting.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
@@ -189,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp" />
+    <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\ElementBuffer.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />

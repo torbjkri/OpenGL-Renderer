@@ -81,6 +81,9 @@
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Lighting\Basic_Lighting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
@@ -150,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\Renderable\Objects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Lighting\Basic_Lighting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

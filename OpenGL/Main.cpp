@@ -1,8 +1,9 @@
 #include "Examples/HelloTriangle/HelloTriangle.hpp"
+#include "Examples/Lighting/Basic_Lighting.h"
 
 
 
 int main()
 {
-	return HelloTriangle();
+	return Basic_Lighting();
 }
