@@ -65,7 +65,7 @@ int HelloTriangle()
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\BasicTexture.shader", "texture");
     ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
    
-    Cube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"));
+    TextureCube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"));
 
 
     bool drawRectangle = true;

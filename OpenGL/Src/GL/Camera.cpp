@@ -21,7 +21,7 @@ constexpr float FOV = 80.0f;
 Camera::Camera(GLFWwindow *window)
 {
 	glfwGetWindowSize(window, &m_Width, &m_Height);
-	Position = glm::vec3(0.0f, 0.0f, 1.0f);
+	Position = glm::vec3(0.0f, 0.0f, 2.0f);
 }
 
 glm::mat4 Camera::GetProjectionView() const

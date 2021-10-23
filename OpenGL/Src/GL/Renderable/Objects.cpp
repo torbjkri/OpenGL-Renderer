@@ -7,26 +7,60 @@
 #include "GL/Shader.h"
 #include "GL/Texture.h"
 
-Cube::Cube(Shader shader, Texture texture)
-	: shader_(shader)
-	, texture_(texture)
-{
-	InitRenderData();
-}
 
 void Cube::InitRenderData()
 {
 
     std::vector<TextureVertex> verts = {
-        {{0.5f, 0.5f, 0.0f}, {1.0f, 1.0f}},
-        {{0.5f, -0.5f, 0.0f}, {1.0f, 0.0f}},
-        {{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f}},
-        {{-0.5f, 0.5f, 0.0f}, {0.0f, 1.0f}},
+        {{ 1.0f,  1.0f, 1.0f}, {1.0f, 1.0f}},
+        {{ 1.0f, -1.0f, 1.0f}, {1.0f, 0.0f}},
+        {{-1.0f, -1.0f, 1.0f}, {0.0f, 0.0f}},
+        {{-1.0f,  1.0f, 1.0f}, {0.0f, 1.0f}},
+
+        {{ 1.0f,  1.0f, -1.0f}, {1.0f, 1.0f}},
+        {{ 1.0f, -1.0f, -1.0f}, {1.0f, 0.0f}},
+        {{-1.0f, -1.0f, -1.0f}, {0.0f, 0.0f}},
+        {{-1.0f,  1.0f, -1.0f}, {0.0f, 1.0f}},
+
+        {{ 1.0f,  1.0f,  1.0f}, {1.0f, 1.0f}},
+        {{ 1.0f,  1.0f, -1.0f}, {1.0f, 0.0f}},
+        {{ 1.0f, -1.0f, -1.0f}, {0.0f, 0.0f}},
+        {{ 1.0f, -1.0f,  1.0f}, {0.0f, 1.0f}},
+
+        {{-1.0f,  1.0f,  1.0f}, {1.0f, 1.0f}},
+        {{-1.0f,  1.0f, -1.0f}, {1.0f, 0.0f}},
+        {{-1.0f, -1.0f, -1.0f}, {0.0f, 0.0f}},
+        {{-1.0f, -1.0f,  1.0f}, {0.0f, 1.0f}},
+
+        {{ 1.0f,  1.0f,  1.0f}, {1.0f, 1.0f}},
+        {{ 1.0f,  1.0f, -1.0f}, {1.0f, 0.0f}},
+        {{-1.0f,  1.0f, -1.0f}, {0.0f, 0.0f}},
+        {{-1.0f,  1.0f,  1.0f}, {0.0f, 1.0f}},
+
+        {{ 1.0f, -1.0f,  1.0f}, {1.0f, 1.0f}},
+        {{ 1.0f, -1.0f, -1.0f}, {1.0f, 0.0f}},
+        {{-1.0f, -1.0f, -1.0f}, {0.0f, 0.0f}},
+        {{-1.0f, -1.0f,  1.0f}, {0.0f, 1.0f}},
     };
 
     std::vector<TriangleIndices> idxs = {
         {{0, 1, 3}},
-        {{1, 2, 3}}
+        {{1, 2, 3}},
+
+        {{4, 5, 7}},
+        {{5, 6, 7}},
+
+        {{8, 9, 11}},
+        {{9, 10, 11}},
+
+        {{12, 13, 15}},
+        {{13, 14, 15}},
+
+        {{16, 17, 19}},
+        {{17, 18, 19}},
+
+        {{20, 21, 23}},
+        {{21, 22, 23}}
     };
 
 	vbo_ = VertexBuffer(verts);
@@ -43,11 +77,22 @@ void Cube::InitRenderData()
 	vao_.Unbind();
 	vbo_.Unbind();
 	ebo_.Unbind();
-
-	model_mat_ = glm::mat4(1.0f);
 }
 
-void Cube::Bind() const
+void ColorCube::Bind() const
+{
+	vao_.Bind();
+	shader_.Bind();
+	shader_.SetUniform4fv("u_Color", 1, &color_.x);
+}
+
+void ColorCube::Unbind() const
+{
+	vao_.Unbind();
+}
+
+
+void TextureCube::Bind() const
 {
 	vao_.Bind();
 	shader_.Bind();
@@ -56,7 +101,7 @@ void Cube::Bind() const
 	texture_.Bind(0);
 }
 
-void Cube::Unbind() const
+void TextureCube::Unbind() const
 {
 	vao_.Unbind();
 }

@@ -11,25 +11,50 @@
 #include <glm/glm.hpp>
 
 
-
-struct Cube {
+struct RenderableObject {
+	Shader shader_;
+	
 	VertexArray vao_;
 	VertexBuffer vbo_;
 	ElementBuffer ebo_;
 
-	Shader shader_;
-	Texture texture_;
+	glm::vec3 position_ =  glm::vec3(0.0f, 0.0f, 0.0);
+	glm::mat4 model_mat_ = glm::mat4(1.0f);
+
+	RenderableObject(Shader shader) : shader_(shader) {}
+	virtual ~RenderableObject() = default;
+	virtual void InitRenderData() = 0;
+
+	virtual void Bind() const = 0;
+	virtual void Unbind() const = 0;
+
+};
+
+struct Cube : RenderableObject {
 	
-	glm::mat4 model_mat_;
-	
-	Cube(Shader shader, Texture texture);
+	Cube(Shader shader)
+		: RenderableObject(shader)
+	{ InitRenderData(); };
 
 	// Set up default render data
-	void InitRenderData();
+	void InitRenderData() override;
 
-	// Bind properties of the cube
-	void Bind() const;
+};
 
-	// Unbind the cube
-	void Unbind() const;
+struct ColorCube : Cube {
+	glm::vec4 color_;
+
+	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color) {}
+
+	void Bind() const override;
+	void Unbind() const override;
+};
+
+struct TextureCube : Cube {
+	Texture texture_;
+
+	TextureCube(Shader shader, Texture texture) : Cube(shader), texture_(texture) {}
+
+	void Bind() const override;
+	void Unbind() const override;
 };
