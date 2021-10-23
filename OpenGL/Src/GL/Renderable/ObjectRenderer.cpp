@@ -11,6 +11,18 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+void ObjectRenderer::Draw(const Light& light, const glm::mat4 projection_view)
+{
+	light.Bind();
+	glm::mat4 mvp = projection_view;
+	mvp = glm::translate(mvp, light.position_);
+	mvp = glm::scale(mvp, glm::vec3(light.scale_));
+
+	light.shader_.SetUniformMatrix4fv("u_ProjectionViewModel", 1, mvp);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	light.Unbind();
+}
+
 void ObjectRenderer::Draw(const Cube& cube, const glm::mat4 projection_view)
 {
 	cube.Bind();

@@ -31,6 +31,21 @@ struct RenderableObject {
 
 };
 
+struct Light : RenderableObject {
+	glm::vec3 color_;
+
+	Light(Shader shader, glm::vec4 color) : RenderableObject(shader), color_(color)
+	{
+		InitRenderData();
+	}
+
+	// Set up default render data
+	void InitRenderData() override;
+
+	void Bind() const override;
+	void Unbind() const override;
+};
+
 struct Cube : RenderableObject {
 	
 	Cube(Shader shader)

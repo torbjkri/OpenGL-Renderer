@@ -7,9 +7,15 @@ struct PositionVertex {
 	glm::vec3 m_VertexPosition;
 };
 
-struct TextureVertex {
+struct PositionNormalVertex {
+	glm::vec3 m_VertexPosition;
+	glm::vec3 m_VertexNormal;
+};
+
+struct PositionTextureNormalVertex {
 	glm::vec3 m_VertexPosition;
 	glm::vec2 m_TexturePosition;
+	glm::vec3 m_VertexNormal;
 };
 
 struct TriangleIndices {

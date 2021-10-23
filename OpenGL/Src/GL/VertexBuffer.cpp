@@ -11,14 +11,22 @@ VertexBuffer::VertexBuffer(const std::vector<float> vertices)
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
 }
 
-VertexBuffer::VertexBuffer(const std::vector<TextureVertex>& vertices)
+
+VertexBuffer::VertexBuffer(const std::vector<PositionVertex>& vertices)
 {
 	glGenBuffers(1, &m_RendererID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
 }
 
-VertexBuffer::VertexBuffer(const std::vector<PositionVertex>& vertices)
+VertexBuffer::VertexBuffer(const std::vector<PositionNormalVertex>& vertices)
+{
+	glGenBuffers(1, &m_RendererID);
+	glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
+}
+
+VertexBuffer::VertexBuffer(const std::vector<PositionTextureNormalVertex>& vertices)
 {
 	glGenBuffers(1, &m_RendererID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);

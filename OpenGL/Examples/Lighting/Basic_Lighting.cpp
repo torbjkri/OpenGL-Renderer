@@ -65,7 +65,7 @@ int Basic_Lighting()
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.shader", "color");
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.shader", "light");
    
-    ColorCube light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
