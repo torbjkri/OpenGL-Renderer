@@ -86,7 +86,7 @@ int Basic_Lighting()
         camera.ProcessInput(context.GetWindow());
 
 
-        ObjectRenderer::Draw(cube, light.color_, camera.GetProjectionView());
+        ObjectRenderer::Draw(cube, light, camera.GetProjectionView());
         ObjectRenderer::Draw(light, camera.GetProjectionView());
 
 

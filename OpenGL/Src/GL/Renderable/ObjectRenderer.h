@@ -12,6 +12,6 @@ class ObjectRenderer
 public: 
 	static void Draw(const Light& cube, const glm::mat4 projection_view);
 	static void Draw(const Cube& cube, const glm::mat4 projection_view);
-	static void Draw(const Cube& cube, const glm::vec3 light_color, const glm::mat4 projection_view);
+	static void Draw(const Cube& cube, const Light& light, const glm::mat4 projection_view);
 };
 

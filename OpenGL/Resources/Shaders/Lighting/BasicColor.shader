@@ -23,6 +23,7 @@ in vec3 vs_Normal;
 
 uniform vec3 u_ObjectColor;
 uniform vec3 u_LightColor;
+uniform vec3 u_LightPosition;
 
 const float l_AmbientStrength = 0.1f;
 
