@@ -76,7 +76,6 @@ int Basic_Lighting()
 
     bool drawRectangle = true;
 
-    float size = 1.0f;
     float color[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
 
     while (!context.ShouldClose())
@@ -94,8 +93,7 @@ int Basic_Lighting()
         ImGui::Begin("My Window");
         ImGui::Text("Hello ImGui");
         ImGui::Checkbox("Draw Rectangle", &drawRectangle);
-        ImGui::SliderFloat("Size", &size, 0.5f, 2.0f);
-        ImGui::ColorEdit4("Color", color);
+        ImGui::ColorEdit3("Color", &light.color_.x);
         ImGui::End();
 
         context.EndFrame();
