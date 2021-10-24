@@ -40,6 +40,7 @@ public:
 
 	// Updates and exports the camera matrix to the Vertex Shader
 	glm::mat4 GetProjectionView() const;
+	glm::vec3 GetPosition() const;
 	// Handles camera inputs
 	void ProcessInput(GLFWwindow* window);
 };

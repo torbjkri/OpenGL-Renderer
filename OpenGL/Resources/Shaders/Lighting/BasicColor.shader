@@ -28,8 +28,10 @@ in vec3 vs_FragPos;
 uniform vec3 u_ObjectColor;
 uniform vec3 u_LightColor;
 uniform vec3 u_LightPosition;
+uniform vec3 u_ViewPos;
 
 const float l_AmbientStrength = 0.2f;
+const float l_SpecularStrength = 0.5f;
 
 void main()
 {
@@ -42,7 +44,12 @@ void main()
 	float diffuse_factor = max(dot(normal, light_direction), 0.0f);
 	vec3 diffuse = diffuse_factor * u_LightColor;
 	
+	// Specular light
+	vec3 view_dir = normalize(u_ViewPos - vs_FragPos);
+	vec3 reflect_dir = reflect(-light_direction, normal);
+	float specular_factor = pow(max(dot(view_dir, reflect_dir), 0.0f), 32);
+	vec3 specular = l_SpecularStrength * specular_factor * u_LightColor;
 
-	vec3 color = (diffuse +  ambient) * u_ObjectColor;
+	vec3 color = (specular + diffuse +  ambient) * u_ObjectColor;
 	f_Color = vec4(color, 1.0f);
 };

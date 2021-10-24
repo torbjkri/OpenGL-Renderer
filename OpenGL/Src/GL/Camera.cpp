@@ -36,7 +36,10 @@ glm::mat4 Camera::GetProjectionView() const
 	return projection * view;
 }
 
-
+glm::vec3 Camera::GetPosition() const
+{
+	return Position;
+}
 
 void Camera::ProcessInput(GLFWwindow* window)
 {

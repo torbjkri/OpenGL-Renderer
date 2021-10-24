@@ -76,8 +76,6 @@ int Basic_Lighting()
 
     bool drawRectangle = true;
 
-    float color[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
-
     while (!context.ShouldClose())
     {
 
