@@ -34,9 +34,9 @@ struct RenderableObject {
 };
 
 struct Light : RenderableObject {
-	glm::vec3 color_;
+	LightProperties properties_;
 
-	Light(Shader shader, glm::vec4 color) : RenderableObject(shader), color_(color)
+	Light(Shader shader, glm::vec4 color) : RenderableObject(shader)
 	{
 		InitRenderData();
 	}

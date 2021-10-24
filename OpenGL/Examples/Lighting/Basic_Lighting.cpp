@@ -92,7 +92,7 @@ int Basic_Lighting()
         ImGui::Begin("My Window");
         ImGui::Text("Hello ImGui");
         ImGui::Checkbox("Draw Rectangle", &drawRectangle);
-        ImGui::ColorEdit3("Color", &light.color_.x);
+        ImGui::ColorEdit3("Color", &light.properties_.specular_.x);
         ImGui::End();
 
         context.EndFrame();
