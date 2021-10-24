@@ -62,8 +62,8 @@ int Basic_Lighting()
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.shader", "color");
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.shader", "light");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.glsl", "color");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.glsl", "light");
    
     Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
@@ -81,6 +81,8 @@ int Basic_Lighting()
 
         context.BeginFrame();
         camera.ProcessInput(context.GetWindow());
+
+        light.position_ = glm::vec3(5.0f * glm::cos(glfwGetTime() / 1.0f), 5.0f,  5.0f * glm::sin(glfwGetTime() / 1.0f));
 
 
         ObjectRenderer::Draw(cube, light, camera.GetProjectionView(), camera.GetPosition());

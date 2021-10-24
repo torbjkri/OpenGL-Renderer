@@ -158,13 +158,16 @@
     <ClInclude Include="Examples\Lighting\Basic_Lighting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\GL\Renderable\ObjectProperties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
-    <None Include="Resources\Shaders\Lighting\BasicColor.shader" />
-    <None Include="Resources\Shaders\Lighting\BasicTexture.shader" />
-    <None Include="Resources\Shaders\Lighting\Light.shader" />
+    <None Include="Resources\Shaders\Lighting\BasicColor.glsl" />
+    <None Include="Resources\Shaders\Lighting\BasicTexture.glsl" />
+    <None Include="Resources\Shaders\Lighting\Light.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">

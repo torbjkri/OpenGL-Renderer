@@ -8,6 +8,8 @@
 #include "GL/Shader.h"
 #include "GL/Texture.h"
 
+#include "ObjectProperties.h"
+
 #include <glm/glm.hpp>
 
 
@@ -56,6 +58,7 @@ struct Cube : RenderableObject {
 
 struct ColorCube : Cube {
 	glm::vec3 color_;
+	Material material_;
 
 	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color)
 	{

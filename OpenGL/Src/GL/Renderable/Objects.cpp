@@ -155,7 +155,10 @@ void ColorCube::Bind() const
 {
 	vao_.Bind();
 	shader_.Bind();
-	shader_.SetUniform3f("u_ObjectColor", color_.x, color_.y, color_.z);
+	shader_.SetUniform3fv("u_Material.ambient", 1, &material_.ambient_.x);
+	shader_.SetUniform3fv("u_Material.diffuse", 1 ,&material_.diffuse_.x);
+	shader_.SetUniform3fv("u_Material.specular", 1, &material_.specular_.x);
+    shader_.SetUniform1f("u_Material.shininess", material_.shininiess_);
 
 	glm::mat4 model_mat = glm::translate(glm::mat4(1.0), position_);
 	model_mat = model_mat * orientation_mat_;
