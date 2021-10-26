@@ -20,15 +20,6 @@ void ObjectRenderer::Draw(const Light& light, const glm::mat4 projection_view)
 	light.Unbind();
 }
 
-void ObjectRenderer::Draw(const Cube& cube, const glm::mat4 projection_view)
-{
-	cube.Bind();
-
-	cube.shader_.SetUniformMatrix4fv("u_ProjectionView", 1, projection_view);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
-	cube.Unbind();
-}
-
 void ObjectRenderer::Draw(const Cube& cube, const Light& light, const glm::mat4 projection_view, glm::vec3 view_pos)
 {
 	cube.Bind();

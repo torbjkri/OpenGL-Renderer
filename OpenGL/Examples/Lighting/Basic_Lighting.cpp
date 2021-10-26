@@ -62,14 +62,15 @@ int Basic_Lighting()
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicColor.glsl", "color");
+    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicShader.glsl", "basic");
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.glsl", "light");
+    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
    
     Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
-    ColorCube cube(ResourceManager::GetInstance()->GetShader("color"), glm::vec4(1.0f, 0.5f, 0.31f, 1.0f));
+    Cube cube(ResourceManager::GetInstance()->GetShader("basic"), ResourceManager::GetInstance()->GetTexture("wall"));
     cube.position_ = glm::vec3(2.0f, -2.0f, -2.0f);
 
 

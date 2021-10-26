@@ -218,8 +218,7 @@
   <ItemGroup>
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
-    <None Include="Resources\Shaders\Lighting\BasicColor.glsl" />
-    <None Include="Resources\Shaders\Lighting\BasicTexture.glsl" />
+    <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
   </ItemGroup>
   <ItemGroup>

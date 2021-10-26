@@ -49,33 +49,10 @@ struct Light : RenderableObject {
 };
 
 struct Cube : RenderableObject {
-	
-	Cube(Shader shader)
-		: RenderableObject(shader)
-	{}
-
-};
-
-struct ColorCube : Cube {
-	glm::vec3 color_;
 	Material material_;
-
-	ColorCube(Shader shader, glm::vec4 color) : Cube(shader), color_(color)
-	{
-		InitRenderData();
-	}
-
-	// Set up default render data
-	void InitRenderData() override;
-
-	void Bind() const override;
-	void Unbind() const override;
-};
-
-struct TextureCube : Cube {
 	Texture texture_;
 
-	TextureCube(Shader shader, Texture texture) : Cube(shader), texture_(texture)
+	Cube(Shader shader, Texture texture) : RenderableObject(shader), texture_(texture)
 	{
 		InitRenderData();
 	}
@@ -86,3 +63,4 @@ struct TextureCube : Cube {
 	void Bind() const override;
 	void Unbind() const override;
 };
+

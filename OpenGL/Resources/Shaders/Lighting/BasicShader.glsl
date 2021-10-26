@@ -2,19 +2,22 @@
 #version 460 core
 
 layout(location = 0) in vec3 a_Position;
-layout(location = 1) in vec3 a_Normal;
+layout(location = 1) in vec2 a_TexCoord;
+layout(location = 2) in vec3 a_Normal;
 
 uniform mat4 u_ProjectionView;
 uniform mat4 u_Model;
 
 out vec3 vs_Normal;
 out vec3 vs_FragPos;
+out vec2 vs_TexCoord;
 
 void main()
 {
 	gl_Position = u_ProjectionView * u_Model * vec4(a_Position, 1.0f);
 	vs_Normal = mat3(transpose(inverse(u_Model))) * a_Normal;
 	vs_FragPos = vec3(u_Model * vec4(a_Position, 1.0f));
+	vs_TexCoord = a_TexCoord;
 };
 
 #shader fragment
@@ -39,9 +42,11 @@ layout(location = 0) out vec4 fs_Color;
 
 in vec3 vs_Normal;
 in vec3 vs_FragPos;
+in vec2 vs_TexCoord;
 
 uniform Material u_Material;
 uniform Light u_Light;
+uniform sampler2D u_Texture;
 
 uniform vec3 u_ViewPos;
 
@@ -66,5 +71,6 @@ void main()
 	vec3 specular = specular_factor * u_Light.specular * u_Material.specular;
 
 	vec3 color = specular + diffuse +  ambient;
-	fs_Color = vec4(color, 1.0f);
+	vec3 col = vec3(texture(u_Texture, vs_TexCoord));
+	fs_Color = vec4(color * col , 1.0f);
 };
