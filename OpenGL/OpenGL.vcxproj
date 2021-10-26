@@ -223,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\container2.png" />
+    <Image Include="Resources\Textures\container2_specular.png" />
     <Image Include="Resources\Textures\smiley.png" />
     <Image Include="Resources\Textures\wall.jpg" />
   </ItemGroup>

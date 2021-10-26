@@ -156,11 +156,13 @@ void Cube::Bind() const
 {
 	vao_.Bind();
 	shader_.Bind();
-	shader_.SetUniform3fv("u_Material.specular", 1, &material_.specular_.x);
     shader_.SetUniform1f("u_Material.shininess", material_.shininiess_);
 
-	shader_.SetUniform1i("material.diffuse", 0);
-	texture_.Bind(0);
+	shader_.SetUniform1i("u_Material.diffuse", 0);
+	material_.diffuse_.Bind(0);
+
+	shader_.SetUniform1i("u_Material.specular", 1);
+	material_.specular_.Bind(1);
 
 	glm::mat4 model_mat = glm::translate(glm::mat4(1.0), position_);
 	model_mat = model_mat * orientation_mat_;

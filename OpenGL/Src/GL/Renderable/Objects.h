@@ -50,10 +50,11 @@ struct Light : RenderableObject {
 
 struct Cube : RenderableObject {
 	Material material_;
-	Texture texture_;
 
-	Cube(Shader shader, Texture texture) : RenderableObject(shader), texture_(texture)
+	Cube(Shader shader, Texture diffuse, Texture specular) : RenderableObject(shader)
 	{
+		material_.diffuse_ = diffuse;
+		material_.specular_ = specular;
 		InitRenderData();
 	}
 
