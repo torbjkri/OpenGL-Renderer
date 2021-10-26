@@ -222,6 +222,7 @@
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Textures\container2.png" />
     <Image Include="Resources\Textures\smiley.png" />
     <Image Include="Resources\Textures\wall.jpg" />
   </ItemGroup>
