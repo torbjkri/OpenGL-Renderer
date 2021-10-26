@@ -64,13 +64,13 @@ int Basic_Lighting()
 
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicShader.glsl", "basic");
     ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.glsl", "light");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2.png", "box");
    
     Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
-    Cube cube(ResourceManager::GetInstance()->GetShader("basic"), ResourceManager::GetInstance()->GetTexture("wall"));
+    Cube cube(ResourceManager::GetInstance()->GetShader("basic"), ResourceManager::GetInstance()->GetTexture("box"));
     cube.position_ = glm::vec3(2.0f, -2.0f, -2.0f);
 
 
