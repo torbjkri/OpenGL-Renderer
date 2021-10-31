@@ -165,8 +165,9 @@
     <ClCompile Include="Examples\Lighting\Basic_Lighting.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
+    <ClCompile Include="Src\GL\Renderable\Cube.cpp" />
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
-    <ClCompile Include="Src\GL\Renderable\Objects.cpp" />
+    <ClCompile Include="Src\GL\Renderable\Light.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
     <ClCompile Include="Src\GL\Shader.cpp" />
     <ClCompile Include="Src\GL\Texture.cpp" />
@@ -193,9 +194,11 @@
     <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\ElementBuffer.h" />
+    <ClInclude Include="Src\GL\Renderable\Cube.h" />
+    <ClInclude Include="Src\GL\Renderable\Light.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectProperties.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />
-    <ClInclude Include="Src\GL\Renderable\Objects.h" />
+    <ClInclude Include="Src\GL\Renderable\RenderableObject.h" />
     <ClInclude Include="Src\GL\ResourceManager.h" />
     <ClInclude Include="Src\GL\Shader.h" />
     <ClInclude Include="Src\GL\Texture.h" />

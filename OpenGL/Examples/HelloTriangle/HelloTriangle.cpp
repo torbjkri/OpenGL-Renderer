@@ -26,7 +26,8 @@
 #include <GL/Texture.h>
 
 #include <GL/Renderable/ObjectRenderer.h>
-#include <GL/Renderable/Objects.h>
+#include <GL/Renderable/Cube.h>
+#include <GL/Renderable/Light.h>
 
 #include <GL/VerticeStructs.h>
 

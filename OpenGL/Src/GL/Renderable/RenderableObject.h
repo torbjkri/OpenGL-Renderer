@@ -33,35 +33,3 @@ struct RenderableObject {
 
 };
 
-struct Light : RenderableObject {
-	LightProperties properties_;
-
-	Light(Shader shader) : RenderableObject(shader)
-	{
-		InitRenderData();
-	}
-
-	// Set up default render data
-	void InitRenderData() override;
-
-	void Bind() const override;
-	void Unbind() const override;
-};
-
-struct Cube : RenderableObject {
-	Material material_;
-
-	Cube(Shader shader, Texture diffuse, Texture specular) : RenderableObject(shader)
-	{
-		material_.diffuse_ = diffuse;
-		material_.specular_ = specular;
-		InitRenderData();
-	}
-
-	// Set up default render data
-	void InitRenderData() override;
-
-	void Bind() const override;
-	void Unbind() const override;
-};
-
