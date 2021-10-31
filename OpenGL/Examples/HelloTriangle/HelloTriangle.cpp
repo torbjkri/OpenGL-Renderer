@@ -67,7 +67,7 @@ int HelloTriangle()
     ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
    
     Cube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"), ResourceManager::GetInstance()->GetTexture("wall"));
-    Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    Light light(ResourceManager::GetInstance()->GetShader("light"));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 

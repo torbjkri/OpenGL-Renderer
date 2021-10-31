@@ -1,6 +1,7 @@
 #include "ObjectRenderer.h"
 
-#include "GL/Renderable/Objects.h"
+#include "GL/Renderable/Cube.h"
+#include "GL/Renderable/Light.h"
 
 #include "GL/VertexArray.h"
 #include "GL/ElementBuffer.h"
