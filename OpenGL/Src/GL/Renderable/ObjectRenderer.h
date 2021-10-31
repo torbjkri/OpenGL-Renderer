@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
 
-#include "Objects.h"
+#include "Cube.h"
+#include "Light.h"
 
 #include <glm/mat4x4.hpp>
 #include <glm/vec3.hpp>

@@ -13,3 +13,7 @@ struct LightProperties {
 	glm::vec3 diffuse_ = glm::vec3(0.5f);
 	glm::vec3 specular_ = glm::vec3(1.0f);
 };
+
+struct DirectionalLightProperties : LightProperties {
+	glm::vec3 direction_;
+};
