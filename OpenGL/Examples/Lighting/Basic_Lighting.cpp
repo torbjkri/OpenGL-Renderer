@@ -67,7 +67,7 @@ int Basic_Lighting()
     ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2.png", "box");
     ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2_specular.png", "frame");
    
-    Light light(ResourceManager::GetInstance()->GetShader("light"), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    Light light(ResourceManager::GetInstance()->GetShader("light"));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
