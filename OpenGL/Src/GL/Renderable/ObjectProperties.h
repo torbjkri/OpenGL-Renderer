@@ -14,6 +14,8 @@ struct LightProperties {
 	glm::vec3 specular_ = glm::vec3(1.0f);
 };
 
-struct DirectionalLightProperties : LightProperties {
-	glm::vec3 direction_;
+struct AttenuationCoefficients {
+	float constant_ = 1.0f;
+	float linear_ = 0.09f;
+	float quadratic_ = 0.032f;
 };

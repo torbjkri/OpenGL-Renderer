@@ -3,6 +3,7 @@
 #include "GL/Shader.h"
 #include "ObjectProperties.h"
 
+
 struct Light : RenderableObject {
 	LightProperties properties_;
 
@@ -14,7 +15,33 @@ struct Light : RenderableObject {
 	// Set up default render data
 	void InitRenderData() override;
 
-	void Bind() const override;
-	void Unbind() const override;
+	virtual void Bind() const override;
+	virtual void Unbind() const override;
 };
 
+struct DirectionalLight : Light {
+	glm::vec3 direction_;
+
+	DirectionalLight(Shader shader, glm::vec3 direction)
+		: Light(shader)
+		, direction_(direction)
+	{}
+
+};
+
+struct PointLight : Light {
+	AttenuationCoefficients attenuation_;
+
+	PointLight(Shader shader)
+	: Light(shader)
+	{}
+};
+
+struct SpotLight : Light {
+	AttenuationCoefficients attenuation_;
+	float cutoff_ = 0.4f; // ~cos(20)
+
+	SpotLight(Shader shader)
+		: Light(shader)
+	{ }
+};
