@@ -87,6 +87,9 @@
     <ClCompile Include="Src\GL\Renderable\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\GL\Renderable\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
@@ -168,6 +171,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\Renderable\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GL\Renderable\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -130,13 +130,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src;$(ProjectDir)Vendor;$(SolutionDir)Dependencies\glad\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src;$(ProjectDir)Vendor;$(SolutionDir)Dependencies\glad\include;$(ProjectDir);$(SolutionDir)Dependencies\assimp\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -148,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src;$(ProjectDir)Vendor;$(SolutionDir)Dependencies\glad\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src;$(ProjectDir)Vendor;$(SolutionDir)Dependencies\glad\include;$(ProjectDir);$(SolutionDir)Dependencies\assimp\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -156,7 +156,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -166,6 +166,7 @@
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\Renderable\Cube.cpp" />
+    <ClCompile Include="Src\GL\Renderable\Mesh.cpp" />
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
     <ClCompile Include="Src\GL\Renderable\Light.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\ElementBuffer.h" />
+    <ClInclude Include="Src\GL\Renderable\Mesh.h" />
     <ClInclude Include="Src\GL\Renderable\Cube.h" />
     <ClInclude Include="Src\GL\Renderable\Light.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectProperties.h" />
