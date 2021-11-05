@@ -11,9 +11,20 @@
 
 namespace fs = std::filesystem;
 
-Texture::Texture(const std::string filePath)
+std::string TypeToString(const TextureType type)
+{
+	switch (type) {
+	case TextureType::UNSPECIFIED: return "unspecified";
+	case TextureType::SPECULAR: return "specular";
+	case TextureType::DIFFUSE: return "diffuse";
+	}
+}
+
+
+Texture::Texture(const std::string filePath, const TextureType type)
 	: m_RendererID(0)
 	, m_FilePath(filePath)
+	, m_Type(type)
 	, m_Width(0)
 	, m_Height(0)
 {
@@ -55,4 +66,9 @@ void Texture::Unbind() const
 void Texture::Delete() const
 {
 	glDeleteTextures(1, &m_RendererID);
+}
+
+TextureType Texture::Type() const
+{
+	return m_Type;
 }
