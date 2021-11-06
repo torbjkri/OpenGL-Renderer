@@ -93,6 +93,9 @@
     <ClCompile Include="Examples\Model_Loading\Mesh_Chapter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\GL\Renderable\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
@@ -180,6 +183,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GL\Renderable\Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

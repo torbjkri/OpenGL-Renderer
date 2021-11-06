@@ -136,8 +136,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;assimp-vc142-mt.lib;assimp-vc142-mtd.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,8 +156,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);glfw3.lib;opengl32.lib;assimp-vc142-mt.lib;assimp-vc142-mtd.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -168,6 +168,7 @@
     <ClCompile Include="Src\GL\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\Renderable\Cube.cpp" />
     <ClCompile Include="Src\GL\Renderable\Mesh.cpp" />
+    <ClCompile Include="Src\GL\Renderable\Model.cpp" />
     <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
     <ClCompile Include="Src\GL\Renderable\Light.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Src\GL\Renderable\Mesh.h" />
     <ClInclude Include="Src\GL\Renderable\Cube.h" />
     <ClInclude Include="Src\GL\Renderable\Light.h" />
+    <ClInclude Include="Src\GL\Renderable\Model.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectProperties.h" />
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />
     <ClInclude Include="Src\GL\Renderable\RenderableObject.h" />

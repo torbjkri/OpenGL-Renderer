@@ -56,25 +56,21 @@ Shader
 */
 
 
-int Basic_Lighting()
+int Mesh_Chapter()
 {
     GLContext context; // This must be called at the start of every application
 
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicShader.glsl", "basic");
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.glsl", "light");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2.png", "box");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2_specular.png", "frame");
-   
+    ResourceManager::GetInstance()->LoadShader("Resources/Shaders/Lighting/BasicShader.glsl", "basic");
+     
+      
     Light light(ResourceManager::GetInstance()->GetShader("light"));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);
     light.scale_ = 0.3f;
 
-    Cube cube(ResourceManager::GetInstance()->GetShader("basic"), ResourceManager::GetInstance()->GetTexture("box"), ResourceManager::GetInstance()->GetTexture("frame"));
-    cube.position_ = glm::vec3(2.0f, -2.0f, -2.0f);
-
+    Model model("Resource/Models/backpack");
 
 
     bool drawRectangle = true;
@@ -88,7 +84,7 @@ int Basic_Lighting()
         light.position_ = glm::vec3(5.0f * glm::cos(glfwGetTime() / 1.0f), 5.0f,  5.0f * glm::sin(glfwGetTime() / 1.0f));
 
 
-        ObjectRenderer::Draw(cube, light, camera.GetProjectionView(), camera.GetPosition());
+        ObjectRenderer::Draw(model, light, camera.GetProjectionView(), camera.GetPosition());
         ObjectRenderer::Draw(light, camera.GetProjectionView());
 
 

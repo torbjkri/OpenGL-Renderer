@@ -11,13 +11,13 @@
 
 #include <vector>
 
-class Mesh : public RenderableObject {
+struct Mesh : public RenderableObject {
 public:
-	std::vector<PositionNormalVertex> vertices_;
+	std::vector<PositionTextureNormalVertex> vertices_;
 	std::vector<unsigned int> indices_;
 	std::vector<Texture> textures_;
 
-	Mesh(Shader shader, std::vector<PositionNormalVertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+	Mesh(Shader shader, std::vector<PositionTextureNormalVertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
 
 	void InitRenderData() override;
 

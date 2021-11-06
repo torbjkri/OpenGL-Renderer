@@ -63,10 +63,10 @@ int Basic_Lighting()
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\BasicShader.glsl", "basic");
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Lighting\\Light.glsl", "light");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2.png", "box");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\container2_specular.png", "frame");
+    ResourceManager::GetInstance()->LoadShader("Resources/Shaders/Lighting/BasicShader.glsl", "basic");
+    ResourceManager::GetInstance()->LoadShader("Resources/Shaders/Lighting/Light.glsl", "light");
+    ResourceManager::GetInstance()->LoadTexture("Resources/Textures/container2.png", "box", TextureType::UNSPECIFIED);
+    ResourceManager::GetInstance()->LoadTexture("Resources/Textures/container2_specular.png", "frame", TextureType::UNSPECIFIED);
    
     Light light(ResourceManager::GetInstance()->GetShader("light"));
     light.position_ = glm::vec3(5.0f, 5.0f, -5.0f);

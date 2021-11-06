@@ -17,6 +17,7 @@ std::string TypeToString(const TextureType type)
 	case TextureType::UNSPECIFIED: return "unspecified";
 	case TextureType::SPECULAR: return "specular";
 	case TextureType::DIFFUSE: return "diffuse";
+	default: return "";
 	}
 }
 

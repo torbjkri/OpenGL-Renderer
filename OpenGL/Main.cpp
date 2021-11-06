@@ -6,5 +6,5 @@
 
 int main()
 {
-	return Basic_Lighting();
+	return Mesh_Chapter();
 }

@@ -24,9 +24,9 @@ ResourceManager* ResourceManager::GetInstance()
 	return s_Instance;
 }
 
-void ResourceManager::LoadTexture(const std::string filePath, const std::string name)
+void ResourceManager::LoadTexture(const std::string filePath, const std::string name, TextureType type)
 {
-	s_Textures[name] = Texture(filePath);
+	s_Textures[name] = Texture(filePath, type);
 }
 
 void ResourceManager::LoadShader(const std::string filePath, const std::string name)

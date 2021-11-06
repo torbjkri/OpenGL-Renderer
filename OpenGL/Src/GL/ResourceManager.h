@@ -22,7 +22,7 @@ public:
 
 	static ResourceManager* GetInstance();
 
-	void LoadTexture(const std::string filePath, const std::string name);
+	void LoadTexture(const std::string filePath, const std::string name, TextureType type);
 	void LoadShader(const std::string filePath, const std::string name);
 	void Clear() const;
 	

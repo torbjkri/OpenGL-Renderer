@@ -8,7 +8,7 @@
 
 #include "RenderableObject.h"
 
-Mesh::Mesh(Shader shader, std::vector<PositionNormalVertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+Mesh::Mesh(Shader shader, std::vector<PositionTextureNormalVertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
 	: RenderableObject(shader)
 	, vertices_(vertices)
 	, indices_(indices)

@@ -62,9 +62,9 @@ int HelloTriangle()
 
     Camera camera(context.GetWindow());
 
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Basic\\BasicColor.shader", "color");
-    ResourceManager::GetInstance()->LoadShader("Resources\\Shaders\\Basic\\BasicTexture.shader", "texture");
-    ResourceManager::GetInstance()->LoadTexture("Resources\\Textures\\wall.jpg", "wall");
+    ResourceManager::GetInstance()->LoadShader("Resources/Shaders/Basic/BasicColor.shader", "color");
+    ResourceManager::GetInstance()->LoadShader("Resources/Shaders/Basic/BasicTexture.shader", "texture");
+    ResourceManager::GetInstance()->LoadTexture("Resources/Textures/wall.jpg", "wall", TextureType::UNSPECIFIED);
    
     Cube cube(ResourceManager::GetInstance()->GetShader("texture"), ResourceManager::GetInstance()->GetTexture("wall"), ResourceManager::GetInstance()->GetTexture("wall"));
     Light light(ResourceManager::GetInstance()->GetShader("light"));
