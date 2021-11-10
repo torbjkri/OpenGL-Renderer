@@ -3,8 +3,8 @@
 
 #include <mutex>
 #include <unordered_map>
-#include <GL/Texture.h>
-#include <GL/Shader.h>
+#include <GL/Core/Texture.h>
+#include <GL/Core/Shader.h>
 
 class ResourceManager
 {
@@ -22,8 +22,8 @@ public:
 
 	static ResourceManager* GetInstance();
 
-	void LoadTexture(const std::string filePath, const std::string name, TextureType type);
-	void LoadShader(const std::string filePath, const std::string name);
+	Texture LoadTexture(const std::string filePath, const std::string name, TextureType type);
+	Shader LoadShader(const std::string filePath, const std::string name);
 	void Clear() const;
 	
 	Texture GetTexture(const std::string name);

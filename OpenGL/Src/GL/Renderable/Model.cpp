@@ -39,7 +39,6 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene)
 Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
 	std::vector<PositionTextureNormalVertex> vertices;
-	vertices.reserve(mesh->mNumVertices);
 	std::vector<unsigned int> indices;
 	std::vector<Texture> textures;
 

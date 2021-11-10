@@ -1,6 +1,6 @@
 #pragma once
 #include "RenderableObject.h"
-#include "GL/Shader.h"
+#include <GL/Core/Shader.h>
 #include "ObjectProperties.h"
 
 

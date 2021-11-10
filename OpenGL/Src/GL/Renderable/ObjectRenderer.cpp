@@ -1,15 +1,15 @@
 #include "ObjectRenderer.h"
 
-#include "GL/Renderable/Cube.h"
-#include "GL/Renderable/Light.h"
-#include "GL/Renderable/Mesh.h"
-#include "GL/Renderable/Model.h"
+#include "Cube.h"
+#include "Light.h"
+#include "Mesh.h"
+#include "Model.h"
 
-#include "GL/VertexArray.h"
-#include "GL/ElementBuffer.h"
-#include "GL/VertexBuffer.h"
-#include "GL/VerticeStructs.h"
-#include "GL/Shader.h"
+#include <GL/Core/VertexArray.h>
+#include <GL/Core/ElementBuffer.h>
+#include <GL/Core/VertexBuffer.h>
+#include <GL/Core/VerticeStructs.h>
+#include <GL/Core/Shader.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

@@ -24,7 +24,7 @@
     <ClCompile Include="Examples\HelloTriangle\HelloTriangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\GLContext.cpp">
+    <ClCompile Include="Src\GL\Core\GLContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vendor\ImGui\imgui.cpp">
@@ -51,16 +51,16 @@
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Shader.cpp">
+    <ClCompile Include="Src\GL\Core\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\VertexArray.cpp">
+    <ClCompile Include="Src\GL\Core\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\VertexBuffer.cpp">
+    <ClCompile Include="Src\GL\Core\VertexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\ElementBuffer.cpp">
+    <ClCompile Include="Src\GL\Core\ElementBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\GL\Camera.cpp">
@@ -69,7 +69,7 @@
     <ClCompile Include="Vendor\stb_image\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Texture.cpp">
+    <ClCompile Include="Src\GL\Core\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\GL\ResourceManager.cpp">
@@ -101,7 +101,7 @@
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\GLContext.h">
+    <ClInclude Include="Src\GL\Core\GLContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vendor\ImGui\imconfig.h">
@@ -134,16 +134,16 @@
     <ClInclude Include="Src\GUI\ImGuiWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Shader.h">
+    <ClInclude Include="Src\GL\Core\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\VertexArray.h">
+    <ClInclude Include="Src\GL\Core\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\VertexBuffer.h">
+    <ClInclude Include="Src\GL\Core\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\ElementBuffer.h">
+    <ClInclude Include="Src\GL\Core\ElementBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\Camera.h">
@@ -152,13 +152,13 @@
     <ClInclude Include="Vendor\stb_image\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Texture.h">
+    <ClInclude Include="Src\GL\Core\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\VerticeStructs.h">
+    <ClInclude Include="Src\GL\Core\VerticeStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\GL\ResourceManager.h">
@@ -194,6 +194,7 @@
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
     <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
+    <None Include="Resources\Shaders\Model-Loading\BasicModel.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">

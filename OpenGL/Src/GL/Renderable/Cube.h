@@ -2,8 +2,8 @@
 #include "RenderableObject.h"
 #include "ObjectProperties.h"
 
-#include "GL/Texture.h"
-#include "GL/Shader.h"
+#include <GL/Core/Texture.h>
+#include <GL/core/Shader.h>
 
 struct Cube : RenderableObject {
 	Material material_;

@@ -2,8 +2,8 @@
 #include <mutex>
 #include <string>
 #include <unordered_map>
-#include <GL/Texture.h>
-#include <GL/Shader.h>
+#include <GL/Core/Texture.h>
+#include <GL/Core/Shader.h>
 
 #include <format>
 #include <iostream>
@@ -24,14 +24,21 @@ ResourceManager* ResourceManager::GetInstance()
 	return s_Instance;
 }
 
-void ResourceManager::LoadTexture(const std::string filePath, const std::string name, TextureType type)
+Texture ResourceManager::LoadTexture(const std::string filePath, const std::string name, TextureType type)
 {
-	s_Textures[name] = Texture(filePath, type);
+	if (s_Textures.find(name) == s_Textures.end())
+		s_Textures[name] = Texture(filePath, type);
+		
+	return s_Textures[name];
+	
 }
 
-void ResourceManager::LoadShader(const std::string filePath, const std::string name)
+Shader ResourceManager::LoadShader(const std::string filePath, const std::string name)
 {
-	s_Shaders[name] = Shader(filePath);
+	if (s_Shaders.find(name) == s_Shaders.end())
+		s_Shaders[name] = Shader(filePath);
+
+	return s_Shaders[name];
 }
 
 void ResourceManager::Clear() const

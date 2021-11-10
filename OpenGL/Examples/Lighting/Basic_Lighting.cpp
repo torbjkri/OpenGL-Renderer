@@ -16,21 +16,21 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "GL/GLContext.h"
-#include "GL/Shader.h"
-#include "GL/VertexArray.h"
-#include "GL/ElementBuffer.h"
-#include "GL/VertexBuffer.h"
+
+#include <GL/Core/GLContext.h>
+#include <GL/Core/Shader.h>
+#include <GL/Core/VertexArray.h>
+#include <GL/Core/ElementBuffer.h>
+#include <GL/Core/VertexBuffer.h>
 
 #include <GL/Camera.h>
 
-#include <GL/Texture.h>
+#include <GL/Core/Texture.h>
 
 #include <GL/Renderable/ObjectRenderer.h>
 #include <GL/Renderable/Cube.h>
 #include <GL/Renderable/Light.h>
 
-#include <GL/VerticeStructs.h>
 
 #include <GL/ResourceManager.h>
 

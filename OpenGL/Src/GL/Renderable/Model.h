@@ -5,7 +5,7 @@
 #include <assimp/postprocess.h>
 
 #include "Mesh.h"
-#include "GL/Texture.h"
+#include <GL/Core/Texture.h>
 
 #include <string>
 #include <vector>
