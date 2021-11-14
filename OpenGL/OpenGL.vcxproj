@@ -183,6 +183,8 @@
     <ClCompile Include="Src\GL\Core\VertexArray.cpp" />
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp" />
     <ClCompile Include="Src\GL\Core\GLContext.cpp" />
+    <ClCompile Include="Src\Whengine\Application.cpp" />
+    <ClCompile Include="Src\Whengine\Scene.cpp" />
     <ClCompile Include="Vendor\glad\glad.c" />
     <ClCompile Include="Main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\glad\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)Src</AdditionalIncludeDirectories>
@@ -219,6 +221,8 @@
     <ClInclude Include="Src\GL\Core\VerticeStructs.h" />
     <ClInclude Include="Src\GUI\ImGuiWrapper.h" />
     <ClInclude Include="Src\GL\Core\GLContext.h" />
+    <ClInclude Include="Src\Whengine\Application.h" />
+    <ClInclude Include="Src\Whengine\Scene.h" />
     <ClInclude Include="Vendor\ImGui\imconfig.h" />
     <ClInclude Include="Vendor\ImGui\imgui.h" />
     <ClInclude Include="Vendor\ImGui\imgui_impl_glfw.h" />
