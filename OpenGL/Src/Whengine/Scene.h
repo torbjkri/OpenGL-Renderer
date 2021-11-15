@@ -7,6 +7,7 @@
 #include <GL/Camera.h>
 #include <GL/Renderable/Light.h>
 #include <GL/Renderable/ObjectRenderer.h>
+#include <GLFW/glfw3.h>
 
 namespace WE {
 
@@ -18,7 +19,7 @@ private:
 	ObjectRenderer m_Renderer;
 
 public:
-
+	Scene(GLFWwindow* window);
 	void Update();
 
 	//Maybe not needed

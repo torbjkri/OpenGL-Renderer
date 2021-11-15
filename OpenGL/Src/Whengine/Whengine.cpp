@@ -1,11 +1,12 @@
-#include "Application.h"
+#include "Whengine.h"
 
 
 
 namespace WE {
 
-Application::Application()
+Whengine::Whengine()
 {
+	Scene(m_Context.GetWindow());
 	/* Create Context/Window manager */
 
 	/* Create Input manager/GUI rendere */
@@ -15,7 +16,7 @@ Application::Application()
 	/* Load scene */
 }
 
-void Application::Run()
+void Whengine::Run()
 {
 	/*Get/Handle inputs*/
 
