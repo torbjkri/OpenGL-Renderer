@@ -183,7 +183,7 @@
     <ClCompile Include="Src\GL\Core\VertexArray.cpp" />
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp" />
     <ClCompile Include="Src\GL\Core\GLContext.cpp" />
-    <ClCompile Include="Src\Whengine\Application.cpp" />
+    <ClCompile Include="Src\Whengine\Whengine.cpp" />
     <ClCompile Include="Src\Whengine\Scene.cpp" />
     <ClCompile Include="Vendor\glad\glad.c" />
     <ClCompile Include="Main.cpp">
@@ -205,6 +205,7 @@
     <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h" />
     <ClInclude Include="Src\GL\Camera.h" />
+    <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />
     <ClInclude Include="Src\GL\Renderable\Mesh.h" />
     <ClInclude Include="Src\GL\Renderable\Cube.h" />
@@ -221,7 +222,7 @@
     <ClInclude Include="Src\GL\Core\VerticeStructs.h" />
     <ClInclude Include="Src\GUI\ImGuiWrapper.h" />
     <ClInclude Include="Src\GL\Core\GLContext.h" />
-    <ClInclude Include="Src\Whengine\Application.h" />
+    <ClInclude Include="Src\Whengine\Whengine.h" />
     <ClInclude Include="Src\Whengine\Scene.h" />
     <ClInclude Include="Vendor\ImGui\imconfig.h" />
     <ClInclude Include="Vendor\ImGui\imgui.h" />
