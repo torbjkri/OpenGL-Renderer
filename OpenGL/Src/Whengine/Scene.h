@@ -14,12 +14,12 @@ namespace WE {
 class Scene {
 private:
 	std::vector<std::unique_ptr<RenderableObject>> m_Objects;
-	Camera m_ViewCamera;
+	std::shared_ptr<Camera> m_ViewCamera;
 	Light m_Light;
 	ObjectRenderer m_Renderer;
 
 public:
-	Scene(GLFWwindow* window);
+	Scene(GLFWwindow* window, std::shared_ptr<Camera> cam);
 	void Update();
 
 	//Maybe not needed

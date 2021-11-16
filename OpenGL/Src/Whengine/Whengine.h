@@ -1,7 +1,11 @@
 #pragma once
 
 #include <GL/Core/GLContext.h>
+#include <GL/InputHandler.h>
+
 #include "Scene.h"
+
+#include <memory>
 
 namespace WE {
 
@@ -11,7 +15,7 @@ private:
 		- Create OpenGL context and window
 		- Winow interaction callbacks (minimize, close, resize)
 	*/
-	GLContext m_Context;
+	std::shared_ptr<GLContext> m_Context;
 
 
 	/*IO Manger ??
@@ -21,11 +25,12 @@ private:
 			- Send as input
 			- Give callback to
 	*/
+	std::shared_ptr<InputHandler> m_InputHandler;	
 
 	/*Scene Manager
 		- Maintain objects and their relationships
 	*/
-	Scene m_Scene;
+	std::shared_ptr<Scene> m_Scene;
 
 	/*Renderer/ Render Manager
 		- Accept scene objects and global states (e.g. lights) and render them.
