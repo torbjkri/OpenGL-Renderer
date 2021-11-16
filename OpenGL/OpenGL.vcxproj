@@ -184,6 +184,7 @@
     <ClCompile Include="Src\GL\Core\VertexArray.cpp" />
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp" />
     <ClCompile Include="Src\GL\Core\GLContext.cpp" />
+    <ClCompile Include="Src\Whengine\SceneLoader.cpp" />
     <ClCompile Include="Src\Whengine\Whengine.cpp" />
     <ClCompile Include="Src\Whengine\Scene.cpp" />
     <ClCompile Include="Vendor\glad\glad.c" />
@@ -224,6 +225,7 @@
     <ClInclude Include="Src\GL\Core\VerticeStructs.h" />
     <ClInclude Include="Src\GUI\ImGuiWrapper.h" />
     <ClInclude Include="Src\GL\Core\GLContext.h" />
+    <ClInclude Include="Src\Whengine\SceneLoader.h" />
     <ClInclude Include="Src\Whengine\Whengine.h" />
     <ClInclude Include="Src\Whengine\Scene.h" />
     <ClInclude Include="Vendor\ImGui\imconfig.h" />
@@ -235,9 +237,11 @@
     <ClInclude Include="Vendor\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Vendor\ImGui\imstb_textedit.h" />
     <ClInclude Include="Vendor\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Vendor\nlohmann\json.hpp" />
     <ClInclude Include="Vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Scenes\boxlight.json" />
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
     <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />

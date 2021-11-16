@@ -105,6 +105,9 @@
     <ClCompile Include="Src\GL\InputHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Whengine\SceneLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
@@ -209,6 +212,12 @@
     <ClInclude Include="Src\GL\InputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Vendor\nlohmann\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Whengine\SceneLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
@@ -216,6 +225,7 @@
     <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
     <None Include="Resources\Shaders\Model-Loading\BasicModel.glsl" />
+    <None Include="Resources\Scenes\boxlight.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">
