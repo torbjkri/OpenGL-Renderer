@@ -15,23 +15,18 @@ class Camera
 {
 private:
 	// Stores the main vectors of the camera
-	glm::vec3 Position;
-	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
-	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
-
-	// Prevents the camera from jumping around when first clicking left click
-	bool firstClick = true;
+	glm::vec3 m_Position;
+	glm::vec3 m_Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
+	glm::vec3 m_Up = glm::vec3(0.0f, 1.0f, 0.0f);
 
 	// Stores the width and height of the window
 	int m_Width;
 	int m_Height;
 
 	// Adjust the speed of the camera and it's sensitivity when looking around
-	float speed = 0.1f;
-	float sensitivity = 100.0f;
+	float m_Speed = 0.1f;
+	float m_Sensitivity = 100.0f;
 
-	void HandleMouse(GLFWwindow *window);
-	void HandleKeyboard(GLFWwindow* window);
 
 
 public:
@@ -41,6 +36,15 @@ public:
 	// Updates and exports the camera matrix to the Vertex Shader
 	glm::mat4 GetProjectionView() const;
 	glm::vec3 GetPosition() const;
+
 	// Handles camera inputs
-	void ProcessInput(GLFWwindow* window);
+	void MoveForward();
+	void MoveBackward();
+	void MoveUp();
+	void MoveDown();
+	void StrafeLeft();
+	void StrafeRight();
+	void SetSpeed(const float speed);
+
+	void MouseTurn(const int xPos, const int yPos);
 };
