@@ -7,8 +7,14 @@
       "diffuse": "container2.png",
       "specular": "container2_specular.png"
     }
-  }
+  ,
   "light": {
-
+    "type": "point-light",
+    "position": [ 3, 3, 3 ],
+    "light-properties": {
+      "ambient": [ 0.1, 0.1, 0.1 ],
+      "diffuse": [ 0.5, 0.5, 0.5 ],
+      "specular": [1.0, 1.0, 1.0]
+    }
   }
 }
