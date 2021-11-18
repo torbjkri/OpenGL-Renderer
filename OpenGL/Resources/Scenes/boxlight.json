@@ -1,20 +1,25 @@
 {
-  "cube": {
-    "type": "cube",
-    "position": [ 0.0, 0.0, 2.0 ],
-    "orientation": [ 45.0, 45.0, 45.0 ],
-    "textures": {
-      "diffuse": "container2.png",
-      "specular": "container2_specular.png"
+  "cube": 
+  [
+    {
+      "type": "cube",
+      "position": [ 0.0, 0.0, 2.0 ],
+      "orientation": [ 45.0, 45.0, 45.0 ],
+      "textures": {
+        "diffuse": "container2.png",
+        "specular": "container2_specular.png"
+      }
     }
-  ,
-  "light": {
-    "type": "point-light",
-    "position": [ 3, 3, 3 ],
-    "light-properties": {
-      "ambient": [ 0.1, 0.1, 0.1 ],
-      "diffuse": [ 0.5, 0.5, 0.5 ],
-      "specular": [1.0, 1.0, 1.0]
+  ],
+  "light": [
+    {
+      "type": "point-light",
+      "position": [ 3, 3, 3 ],
+      "light-properties": {
+        "ambient": [ 0.1, 0.1, 0.1 ],
+        "diffuse": [ 0.5, 0.5, 0.5 ],
+        "specular": [ 1.0, 1.0, 1.0 ]
+      }
     }
-  }
+  ]
 }
