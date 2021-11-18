@@ -81,8 +81,6 @@ int HelloTriangle()
 
         context.BeginFrame();
 
-        camera.ProcessInput(context.GetWindow());
-
 
         ObjectRenderer::Draw(cube, light, camera.GetProjectionView(), camera.GetPosition());
 
