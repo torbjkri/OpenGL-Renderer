@@ -83,7 +83,6 @@ int Basic_Lighting()
     {
 
         context.BeginFrame();
-        camera.ProcessInput(context.GetWindow());
 
         light.position_ = glm::vec3(5.0f * glm::cos(glfwGetTime() / 1.0f), 5.0f,  5.0f * glm::sin(glfwGetTime() / 1.0f));
 

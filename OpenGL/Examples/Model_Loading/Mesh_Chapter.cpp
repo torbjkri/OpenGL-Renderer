@@ -79,7 +79,6 @@ int Mesh_Chapter()
     {
 
         context.BeginFrame();
-        camera.ProcessInput(context.GetWindow());
 
         light.position_ = glm::vec3(3.0f * glm::cos(glfwGetTime() / 1.0f), 3.0f,  3.0f * glm::sin(glfwGetTime() / 1.0f));
 
