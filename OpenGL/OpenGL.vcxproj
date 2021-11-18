@@ -170,6 +170,7 @@
     <ClCompile Include="Examples\HelloTriangle\HelloTriangle.cpp" />
     <ClCompile Include="Examples\Lighting\Basic_Lighting.cpp" />
     <ClCompile Include="Examples\Model_Loading\Mesh_Chapter.cpp" />
+    <ClCompile Include="Examples\WhengineTest\WhengineTest.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\Core\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\InputHandler.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp" />
     <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h" />
+    <ClInclude Include="Examples\WhengineTest\WhengineTest.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />
@@ -242,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Scenes\boxlight.json" />
+    <None Include="Resources\Scenes\myfile.json" />
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
     <None Include="Resources\Shaders\Basic\BasicTexture.shader" />
     <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />

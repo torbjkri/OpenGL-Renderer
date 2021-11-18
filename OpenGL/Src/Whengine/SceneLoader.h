@@ -7,6 +7,6 @@
 
 namespace WE {
 
-	Scene LoadScene(std::string filename);
+	void LoadScene(std::string filename);
 
 } // namespace WE

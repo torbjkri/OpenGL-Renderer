@@ -2,6 +2,7 @@
 
 #include <GL/Core/GLContext.h>
 #include <GL/InputHandler.h>
+#include <GL/Camera.h>
 
 #include "Scene.h"
 
@@ -30,7 +31,7 @@ private:
 	/*Scene Manager
 		- Maintain objects and their relationships
 	*/
-	std::shared_ptr<Scene> m_Scene;
+	//std::shared_ptr<Scene> m_Scene;
 
 	/*Renderer/ Render Manager
 		- Accept scene objects and global states (e.g. lights) and render them.

@@ -108,6 +108,9 @@
     <ClCompile Include="Src\Whengine\SceneLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\WhengineTest\WhengineTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp">
@@ -218,6 +221,9 @@
     <ClInclude Include="Src\Whengine\SceneLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Examples\WhengineTest\WhengineTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\Basic\BasicColor.shader" />
@@ -226,6 +232,7 @@
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
     <None Include="Resources\Shaders\Model-Loading\BasicModel.glsl" />
     <None Include="Resources\Scenes\boxlight.json" />
+    <None Include="Resources\Scenes\myfile.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">
