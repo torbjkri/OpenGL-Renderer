@@ -13,8 +13,8 @@ namespace WE {
 	{
 		std::ifstream ifs(filename);
 		json obj = json::parse(ifs);
-		//for (auto& elem : obj) {
-		std::cout << "\n" << obj << std::endl;
-		//}
+		for (auto& elem : obj) {
+			std::cout << "\n" << elem[0]["type"];
+		}
 	}
 }
