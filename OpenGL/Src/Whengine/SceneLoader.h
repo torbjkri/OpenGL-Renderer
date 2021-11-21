@@ -1,12 +1,22 @@
 #pragma once
 
 #include <nlohmann/json.hpp>
-#include <Whengine/Scene.h>
+#include <GL/Renderable/RenderableObject.h>
+#include <GL/Renderable/Light.h>
+#include <GL/Core/Texture.h>
+#include <GL/Core/Shader.h>
 
 #include <string>
+#include <memory>
+
 
 namespace WE {
 
-	void LoadScene(std::string filename);
+	struct SceneData {
+		std::vector<std::unique_ptr<RenderableObject>> renderables_;
+		std::vector<std::unique_ptr<Light>> lights_;
+	};
+
+	SceneData LoadScene(std::string filename);
 
 } // namespace WE
