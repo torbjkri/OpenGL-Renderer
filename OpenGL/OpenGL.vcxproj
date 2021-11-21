@@ -167,8 +167,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Examples\HelloTriangle\HelloTriangle.cpp" />
-    <ClCompile Include="Examples\Lighting\Basic_Lighting.cpp" />
     <ClCompile Include="Examples\Model_Loading\Mesh_Chapter.cpp" />
     <ClCompile Include="Examples\WhengineTest\WhengineTest.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
@@ -204,8 +202,6 @@
     <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Examples\HelloTriangle\HelloTriangle.hpp" />
-    <ClInclude Include="Examples\Lighting\Basic_Lighting.h" />
     <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h" />
     <ClInclude Include="Examples\WhengineTest\WhengineTest.h" />
     <ClInclude Include="Src\GL\Camera.h" />
