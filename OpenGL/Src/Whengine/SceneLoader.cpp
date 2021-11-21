@@ -26,11 +26,14 @@ namespace WE {
 
 			auto cube =  std::make_unique<Cube>(shader, diffuse, spec);
 
-			if (obj.contains("position"))
-				cube->position_ = glm::vec3(obj["position"].array());
+			if (obj.contains("position")) {
+				std::vector<float> j_pos = obj["position"];
+				cube->position_ = glm::vec3(j_pos[0], j_pos[1], j_pos[2]);
+			}
 
 			if (obj.contains("orientation")) {
-				glm::vec3 orientation = glm::vec3(obj["orientation"].array());
+				std::vector<float> j_ori = obj["orientation"];
+				glm::vec3 orientation = glm::vec3(j_ori[0], j_ori[1], j_ori[2]);
 				glm::mat4 R = glm::rotate(glm::mat4(1.0f), orientation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 				R = glm::rotate(R, orientation.y, glm::vec3(0.0f, 1.0f, 0.0f));
 				R = glm::rotate(R, orientation.x, glm::vec3(1.0f, 0.0f, 0.0f));
@@ -54,13 +57,21 @@ namespace WE {
 			Shader shader = rm->LoadShader("Resources/Shaders/Lighting/Light.glsl", "light");
 			std::unique_ptr<PointLight> light = std::make_unique<PointLight>(shader);
 
-			if (obj.contains("position"))
-				light->position_ = glm::vec3(obj["position"].array());
+			if (obj.contains("position")) {
+				std::vector<float> j_pos = obj["position"];
+				light->position_ = glm::vec3(j_pos[0], j_pos[1], j_pos[2]);
+			}
+
+			if (obj.contains("scale"))
+				light->scale_ = obj["scale"];
 
 			if (obj.contains("light-properties")) {
-				light->properties_.ambient_ = glm::vec3(obj["light-properties"]["ambient"].array());
-				light->properties_.diffuse_ = glm::vec3(obj["light-properties"]["diffuse"].array());
-				light->properties_.specular_ = glm::vec3(obj["light-properties"]["specular"].array());
+				std::vector<float> j_amb = obj["light-properties"]["ambient"];
+				std::vector<float> j_dif = obj["light-properties"]["diffuse"];
+				std::vector<float> j_spe = obj["light-properties"]["specular"];
+				light->properties_.ambient_ = glm::vec3(j_amb[0], j_amb[1], j_amb[2]);
+				light->properties_.diffuse_ = glm::vec3(j_dif[0], j_dif[1], j_dif[2]);
+				light->properties_.specular_ = glm::vec3(j_spe[0], j_spe[1], j_spe[2]);
 			}
 
 			if (obj.contains("attenuation")) {
@@ -92,7 +103,7 @@ namespace WE {
 			}
 			if (key == "light") {
 				for (auto& lightdata : elem) {
-					scene_data_.lights_.push_back(LoadLight(elem));
+					scene_data_.lights_.push_back(LoadLight(lightdata));
 				}
 			}
 		}

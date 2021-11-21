@@ -62,7 +62,7 @@ GLContext::GLContext()
 
     if (ContextFlags & GL_CONTEXT_FLAG_DEBUG_BIT)
     {
-        printf("OpenGL : Debug Context Is Enabled");
+        printf("OpenGL : Debug Context Is Enabled\n");
 
         glEnable(GL_DEBUG_OUTPUT);
         glDebugMessageCallback(GLDebugMessageCallback, 0);
