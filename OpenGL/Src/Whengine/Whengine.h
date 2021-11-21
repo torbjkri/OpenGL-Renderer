@@ -31,7 +31,7 @@ private:
 	/*Scene Manager
 		- Maintain objects and their relationships
 	*/
-	//std::shared_ptr<Scene> m_Scene;
+	std::unique_ptr<Scene> m_Scene;
 
 	/*Renderer/ Render Manager
 		- Accept scene objects and global states (e.g. lights) and render them.

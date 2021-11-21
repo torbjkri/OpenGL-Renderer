@@ -20,7 +20,7 @@ private:
 	ObjectRenderer m_Renderer;
 
 public:
-	Scene(GLFWwindow* window, std::shared_ptr<Camera> cam);
+	Scene(std::shared_ptr<Camera> cam);
 	void Update();
 
 	//Maybe not needed

@@ -3,8 +3,8 @@
   [
     {
       "type": "cube",
-      "position": [ 0.0, 0.0, 2.0 ],
-      "orientation": [ 45.0, 45.0, 45.0 ],
+      "position": [ 0.0, 0.0, -2.0 ],
+      "orientation": [ 0.0, 0.0, 0.0 ],
       "textures": {
         "diffuse": {
             "name": "container2_diffuse",
@@ -20,7 +20,8 @@
   "light": [
     {
       "type": "point-light",
-      "position": [ 3, 3, 3 ],
+      "scale": 0.3,
+      "position": [ 3.0, 3.0, -5.0 ],
       "light-properties": {
         "ambient": [ 0.1, 0.1, 0.1 ],
         "diffuse": [ 0.5, 0.5, 0.5 ],

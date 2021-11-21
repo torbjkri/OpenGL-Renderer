@@ -8,6 +8,6 @@
 int WhengineTest()
 {
 	WE::Whengine whengine;
-
+	whengine.Run();
 	return 0;
 }
