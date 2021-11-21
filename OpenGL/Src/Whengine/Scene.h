@@ -9,13 +9,14 @@
 #include <GL/Renderable/ObjectRenderer.h>
 #include <GLFW/glfw3.h>
 
+#include "SceneLoader.h"
+
 namespace WE {
 
 class Scene {
 private:
-	std::vector<std::unique_ptr<RenderableObject>> m_Objects;
+	SceneData m_SceneData;
 	std::shared_ptr<Camera> m_ViewCamera;
-	Light m_Light;
 	ObjectRenderer m_Renderer;
 
 public:
