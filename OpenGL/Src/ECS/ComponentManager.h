@@ -66,9 +66,9 @@ public:
 	}
 
 	template<typename T>
-	void GetComponent(Entity entity)
+	T& GetComponent(Entity entity)
 	{
-		GetComponentArray<T>()->GetData(entity);
+		return GetComponentArray<T>()->GetData(entity);
 	}
 
 	void EntityDestroyed(Entity entity)
