@@ -8,13 +8,15 @@
 
 namespace WE {
 
-	Scene::Scene(std::shared_ptr<Camera> cam)
-		: m_ViewCamera(cam)
+	Scene::Scene()
+		: m_EntityManager(new EntityManager())
+		, m_ComponentManager(new ComponentManager())
+		, m_SystemManager(new SystemMamanger())
 	{
-		m_SceneData = LoadScene("Resources/Scenes/boxlight.json");
+		
 	}
 
-	void Scene::Update()
+	void Scene::Update(const float dt)
 	{
 
 	}
