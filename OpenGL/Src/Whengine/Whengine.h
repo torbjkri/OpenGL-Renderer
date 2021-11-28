@@ -26,7 +26,7 @@ private:
 			- Send as input
 			- Give callback to
 	*/
-	std::shared_ptr<InputHandler> m_InputHandler;	
+	//std::shared_ptr<InputHandler> m_InputHandler;	
 
 	/*Scene Manager
 		- Maintain objects and their relationships
