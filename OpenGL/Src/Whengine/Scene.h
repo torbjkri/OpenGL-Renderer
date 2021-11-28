@@ -3,15 +3,14 @@
 #include <vector>
 #include <memory>
 
-#include "ECS/Core/EntityManager.h"
-#include "ECS/Core/ComponentManager.h"
-#include "ECS/Core/System.h"
-#include "ECS/Systems/CubeRenderSystem.h"
-
-#include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 
-#include "SceneLoader.h"
+
+#include "ECS/Core/Entity.hpp"
+
+class EntityManager;
+class ComponentManager;
+class RenderSystem;
 
 namespace WE {
 
@@ -25,19 +24,25 @@ private:
 
 public:
 
+	Scene();
+	~Scene();
+
 	//Maybe not needed
 	void RenderScene();
 
 	// Entity functions
-	Entity CreateEntity() {return m_EntityManager->CreateEntity() }
+	Entity CreateEntity();
 
 	// Component functions
 	template<typename T>
 	T& GetComponent(Entity entity);
+
+	template<typename T>
+	void AddComponent(Entity entity, T component);
 
 	// System functions
 	void AddRenderSystem(std::unique_ptr<RenderSystem> system);
 
 	glm::mat4 GetSceneProjectionView() const { return m_ProjectionView; }
 };
-}
+} // namespace WE

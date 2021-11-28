@@ -29,7 +29,6 @@ private:
 		return std::static_pointer_cast<ComponentArray<T>>(component_arrays_[type_name]);
 	}
 
-public:
 	template<typename T>
 	void RegisterComponent()
 	{
@@ -42,6 +41,9 @@ public:
 
 		next_component_type_++;
 	}
+
+public:
+	
 
 	template<typename T>
 	ComponentType GetComponentType()
@@ -56,6 +58,10 @@ public:
 	template<typename T>
 	void AddComponent(Entity entity, T component)
 	{
+		const char* type_name = typeid(T).name();
+		if (component_types_.find(type_name) == component_types_.end())
+			RegisterComponent<T>();
+
 		GetComponentArray<T>()->InsertData(entity, component);
 	}
 

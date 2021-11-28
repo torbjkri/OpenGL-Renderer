@@ -4,17 +4,18 @@
 #include <set>
 #include <memory>
 #include "Whengine/Scene.h"
+#include "Component.h"
 
 class System
 {
 protected:
 	std::set<Entity> m_Entities;
-	WE::Scene* m_Scene;
+	WE::Scene *m_ParentScene;
 	Signature m_Signature;
 
 public:
 	// Constructor, connect system to scene
-	System(std::shared_ptr<WE::Scene> scene) : m_Scene(scene.get()) {}
+	System(std::shared_ptr<WE::Scene> scene) : m_ParentScene(scene.get()) {}
 
 	void EntitySignatureChanged(Entity entity, Signature signature)
 	{
@@ -38,10 +39,12 @@ public:
 class RenderSystem : public System
 {
 public:
+	RenderSystem(std::shared_ptr<WE::Scene> scene) : System(scene) {}
 	virtual void Render() = 0;
 };
 
 class InteractionSystem : public System
 {
+	InteractionSystem(std::shared_ptr<WE::Scene> scene) : System(scene) {}
 	virtual void Update(const float dt) = 0;
 };

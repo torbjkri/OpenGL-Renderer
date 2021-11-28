@@ -37,6 +37,7 @@ public:
 	void SetUniform3fv(const std::string& name, const int count, const float* data) const;
 	void SetUniform4f(const std::string& name, const float v1, const float v2, const float v3, const float v4) const;
 
+	void SetUniform4fv(const std::string& name, const int count, glm::vec4 data) const;
 	void SetUniform4fv(const std::string& name, const int count, const std::vector<float> data) const;
 	void SetUniform4fv(const std::string& name, const int count, const float * data) const;
 
