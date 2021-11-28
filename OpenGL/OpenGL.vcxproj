@@ -204,16 +204,17 @@
   <ItemGroup>
     <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h" />
     <ClInclude Include="Examples\WhengineTest\WhengineTest.h" />
-    <ClInclude Include="Src\ECS\Component.h" />
-    <ClInclude Include="Src\ECS\ComponentArray.h" />
-    <ClInclude Include="Src\ECS\ComponentManager.h" />
-    <ClInclude Include="Src\ECS\ComponentTypes.h" />
-    <ClInclude Include="Src\ECS\Coordinator.h" />
-    <ClInclude Include="Src\ECS\Entity.hpp" />
-    <ClInclude Include="Src\ECS\EntityManager.h" />
-    <ClInclude Include="Src\ECS\RenderSystem.h" />
-    <ClInclude Include="Src\ECS\System.h" />
-    <ClInclude Include="Src\ECS\SystemManager.h" />
+    <ClInclude Include="Src\ECS\Components\Transform.h" />
+    <ClInclude Include="Src\ECS\Core\Component.h" />
+    <ClInclude Include="Src\ECS\Core\ComponentArray.h" />
+    <ClInclude Include="Src\ECS\Core\ComponentManager.h" />
+    <ClInclude Include="Src\ECS\Components\RenderableCube.h" />
+    <ClInclude Include="Src\ECS\Core\Coordinator.h" />
+    <ClInclude Include="Src\ECS\Core\Entity.hpp" />
+    <ClInclude Include="Src\ECS\Core\EntityManager.h" />
+    <ClInclude Include="Src\ECS\Systems\CubeRenderSystem.h" />
+    <ClInclude Include="Src\ECS\Core\System.h" />
+    <ClInclude Include="Src\ECS\Core\SystemManager.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />

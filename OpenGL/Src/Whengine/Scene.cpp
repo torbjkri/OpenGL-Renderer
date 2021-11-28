@@ -5,40 +5,37 @@
 #include "SceneLoader.h"
 
 #include <memory>
+#include <glm/mat4x4.hpp>
 
 namespace WE {
 
 	Scene::Scene()
 		: m_EntityManager(new EntityManager())
 		, m_ComponentManager(new ComponentManager())
-		, m_SystemManager(new SystemMamanger())
 	{
 		
 	}
 
-	void Scene::Update(const float dt)
-	{
-
-	}
-
 	void Scene::RenderScene()
 	{
-		for (auto& obj : m_SceneData.renderables_)
-		{
-			m_Renderer.Draw(obj, m_SceneData.lights_[0], m_ViewCamera->GetProjectionView(), m_ViewCamera->GetPosition());
-		}
-
-		for (auto& light : m_SceneData.lights_)
-			m_Renderer.Draw(light, m_ViewCamera->GetProjectionView());
+		for (auto& system : m_RenderSystems)
+			system->Render();
 	}
 
-	void Scene::RenderGui()
+
+	// Component functions
+	template<typename T>
+	T& Scene::GetComponent(Entity entity)
 	{
-
+		return m_ComponentManager->GetComponent<T>(entity);
 	}
 
 
-
+	// System functions
+	void Scene::AddRenderSystem(std::unique_ptr<RenderSystem> system)
+	{
+		m_RenderSystems.push_back(std::move(system));
+	}
 
 
 
