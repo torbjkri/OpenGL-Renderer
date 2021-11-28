@@ -212,34 +212,37 @@
     <ClInclude Include="Examples\WhengineTest\WhengineTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\Component.h">
+    <ClInclude Include="Src\ECS\Core\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\ComponentArray.h">
+    <ClInclude Include="Src\ECS\Core\ComponentArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\ComponentManager.h">
+    <ClInclude Include="Src\ECS\Core\ComponentManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\Coordinator.h">
+    <ClInclude Include="Src\ECS\Core\Coordinator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\Entity.hpp">
+    <ClInclude Include="Src\ECS\Core\Entity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\EntityManager.h">
+    <ClInclude Include="Src\ECS\Core\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\System.h">
+    <ClInclude Include="Src\ECS\Core\System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\SystemManager.h">
+    <ClInclude Include="Src\ECS\Core\SystemManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\ComponentTypes.h">
+    <ClInclude Include="Src\ECS\Components\RenderableCube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECS\RenderSystem.h">
+    <ClInclude Include="Src\ECS\Systems\CubeRenderSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\ECS\Components\Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
