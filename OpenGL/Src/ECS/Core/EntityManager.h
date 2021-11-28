@@ -41,11 +41,11 @@ public:
 		m_LivingEntityCount--;
 	}
 
-	void AppendSignature(Entity entity, Signature signature)
+	void SetSignature(Entity entity, Signature signature)
 	{
 		assert(entity < MAX_ENTITIES && "Entity out of range");
 
-		m_Signatures[entity] |= signature;
+		m_Signatures[entity] = signature;
 	}
 
 	Signature GetSignature(Entity entity)

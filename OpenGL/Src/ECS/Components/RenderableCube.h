@@ -2,6 +2,8 @@
 
 #include <memory>
 
+#include <GLFW/glfw3.h>
+
 #include "GL/Core/Shader.h"
 #include "GL/Core/VertexArray.h"
 #include "GL/Core/VertexBuffer.h"
@@ -95,4 +97,9 @@ struct RenderableCube
     glm::vec4 color_;
 	std::shared_ptr<CubeData> cube_;
 	std::shared_ptr<Shader> shader_;
+
+    void Render()
+    {
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    }
 };

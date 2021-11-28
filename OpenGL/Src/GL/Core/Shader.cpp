@@ -158,6 +158,13 @@ void Shader::SetUniform4f(const std::string& name, const float v1, const float v
         glProgramUniform4f(m_RendererID, location, v1, v2, v3, v4);
 }
 
+void Shader::SetUniform4fv(const std::string& name, const int count, glm::vec4 data) const
+{
+    int location = GetUniformLocation(name);
+    if (location != -1)
+        glProgramUniform4fv(m_RendererID, location, count, &data.x);
+}
+
 void Shader::SetUniform4fv(const std::string& name, const int count, const std::vector<float> data) const
 {
     int location = GetUniformLocation(name);

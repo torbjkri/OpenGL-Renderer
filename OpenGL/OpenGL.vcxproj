@@ -209,12 +209,10 @@
     <ClInclude Include="Src\ECS\Core\ComponentArray.h" />
     <ClInclude Include="Src\ECS\Core\ComponentManager.h" />
     <ClInclude Include="Src\ECS\Components\RenderableCube.h" />
-    <ClInclude Include="Src\ECS\Core\Coordinator.h" />
     <ClInclude Include="Src\ECS\Core\Entity.hpp" />
     <ClInclude Include="Src\ECS\Core\EntityManager.h" />
     <ClInclude Include="Src\ECS\Systems\CubeRenderSystem.h" />
     <ClInclude Include="Src\ECS\Core\System.h" />
-    <ClInclude Include="Src\ECS\Core\SystemManager.h" />
     <ClInclude Include="Src\GL\Camera.h" />
     <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />
