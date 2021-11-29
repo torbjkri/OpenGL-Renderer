@@ -3,8 +3,11 @@
 #include "Entity.hpp"
 #include <set>
 #include <memory>
-#include "Whengine/Scene.h"
 #include "Component.h"
+
+#include <iostream>
+
+namespace WE { class Scene; }
 
 class System
 {
@@ -21,6 +24,7 @@ public:
 	{
 		const bool signatureMatch = (signature & m_Signature) == m_Signature;
 		const bool isRegistered = m_Entities.find(entity) != m_Entities.end();
+
 
 		if (signatureMatch && !isRegistered)
 			m_Entities.insert(entity);
@@ -45,6 +49,7 @@ public:
 
 class InteractionSystem : public System
 {
+public:
 	InteractionSystem(std::shared_ptr<WE::Scene> scene) : System(scene) {}
 	virtual void Update(const float dt) = 0;
 };

@@ -3,13 +3,12 @@
 
 layout(location = 0) in vec3 a_Position;
 
-uniform float u_Size;
-uniform mat4 u_ProjectionView;
+uniform mat4 u_ProjectionViewModel;
 
 
 void main()
 {
-	gl_Position = u_ProjectionView * vec4(u_Size * a_Position, 1.0f);
+	gl_Position = u_ProjectionViewModel * vec4(a_Position, 1.0f);
 };
 
 #shader fragment

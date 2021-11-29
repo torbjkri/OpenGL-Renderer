@@ -12,6 +12,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <memory>
 
+#include <iostream>
+
 class CubeRenderSystem : public RenderSystem
 {
 private:
@@ -30,7 +32,15 @@ private:
 	}
 
 public:
-	CubeRenderSystem(std::shared_ptr<WE::Scene> scene) : RenderSystem(scene) {}
+	CubeRenderSystem(std::shared_ptr<WE::Scene> scene)
+		: RenderSystem(scene)
+	{
+		m_ParentScene->RegisterComponent<RenderableCube>();
+		m_ParentScene->RegisterComponent<Transform>();
+
+		m_Signature.set(m_ParentScene->GetComponentType<RenderableCube>());
+		m_Signature.set(m_ParentScene->GetComponentType<Transform>());
+	}
 
 	void Render() override
 	{
@@ -47,10 +57,11 @@ public:
 			glm::mat4 R = CreateModelMatrix(transform);
 			R = modelView * R;
 
-			renderable.shader_->SetUniformMatrix4fv("u_R", 1, R);
+			renderable.shader_->SetUniformMatrix4fv("u_ProjectionViewModel", 1, R);
 
 			renderable.Render();
-
+			
+			
 		}
 	}
 };
