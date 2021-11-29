@@ -6,6 +6,8 @@
 
 #include "Entity.hpp"
 
+#include <iostream>
+
 class IComponentArray
 {
 public:
@@ -62,7 +64,7 @@ public:
 
 	T& GetData(Entity entity)
 	{
-		assert(entity_to_index_map_[entity] != entity_to_index_map_.end());
+		assert(entity_to_index_map_.find(entity) != entity_to_index_map_.end());
 
 		// Returns reference to that entity's component
 		return component_array_[entity_to_index_map_[entity]];
@@ -70,7 +72,7 @@ public:
 
 	void EntityDestroyed(Entity entity) override
 	{
-		if (entity_to_index_map_[entity] != entity_to_index_map_.end())
+		if (entity_to_index_map_.find(entity) != entity_to_index_map_.end())
 			RemoveData(entity);
 	}
 };

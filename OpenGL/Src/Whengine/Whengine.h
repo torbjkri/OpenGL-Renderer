@@ -1,10 +1,14 @@
 #pragma once
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #include <GL/Core/GLContext.h>
 #include <GL/InputHandler.h>
 #include <GL/Camera.h>
 
 #include "Scene.h"
+
 
 #include <memory>
 

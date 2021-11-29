@@ -6,6 +6,7 @@
 #include <memory>
 #include <cassert>
 
+#include <iostream>
 
 class ComponentManager
 {
@@ -29,18 +30,7 @@ private:
 		return std::static_pointer_cast<ComponentArray<T>>(component_arrays_[type_name]);
 	}
 
-	template<typename T>
-	void RegisterComponent()
-	{
-		const char* type_name = typeid(T).name();
-		assert(component_types_.find(type_name) == component_types_.end());
-
-		component_types_.insert({ type_name, next_component_type_ });
-
-		component_arrays_.insert({ type_name, std::make_shared<ComponentArray<T>>() });
-
-		next_component_type_++;
-	}
+	
 
 public:
 	
@@ -53,6 +43,22 @@ public:
 		assert(component_types_.find(type_name) != component_types_.end());
 
 		return component_types_[type_name];
+	}
+
+	template<typename T>
+	void RegisterComponent()
+	{
+		const char* type_name = typeid(T).name();
+		if (component_types_.find(type_name) != component_types_.end())
+			return;
+
+		component_types_.insert({ type_name, next_component_type_ });
+
+		component_arrays_.insert({ type_name, std::make_shared<ComponentArray<T>>() });
+
+		std::cout << "Name " << type_name << std::endl;
+
+		next_component_type_++;
 	}
 
 	template<typename T>
