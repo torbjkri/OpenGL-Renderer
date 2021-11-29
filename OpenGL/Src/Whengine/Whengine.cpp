@@ -51,7 +51,7 @@ namespace WE {
 			m_Scene->AddInteractionSystem(std::move(physics));
 
 
-			for (int i = 0; i < 1000; i++) {
+			for (int i = 0; i < 100; i++) {
 				Entity entity = m_Scene->CreateEntity();
 
 
@@ -63,7 +63,7 @@ namespace WE {
 				m_Scene->AddComponent(entity, renderableCube);
 
 				Transform transform{
-					.position_ = glm::vec3(rander()* 20.0f, 100.0f + 90.0f * rander(), rander()*3 ),
+					.position_ = glm::vec3(rander()* 1.0f, -3.0f + 1.0f * rander(), rander()*3 ),
 					.orientation_ = glm::vec3(00.0f * rander(), 00.0f * rander(), 00.0f * rander()),
 					.scale_ = glm::vec3(rander())
 				};
@@ -73,6 +73,7 @@ namespace WE {
 				m_Scene->AddComponent(entity, g);
 
 				Velocity v;
+				v.velocity_ = glm::vec3(5.0f * rander(), 20.0f + 0.05 * rander(), 5.0f * rander());
 				m_Scene->AddComponent(entity, v);
 
 			}
