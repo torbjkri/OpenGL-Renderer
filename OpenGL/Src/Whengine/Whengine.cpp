@@ -51,32 +51,56 @@ namespace WE {
 			m_Scene->AddInteractionSystem(std::move(physics));
 
 
-			for (int i = 0; i < 100; i++) {
-				Entity entity = m_Scene->CreateEntity();
+			
+			Entity entity1 = m_Scene->CreateEntity();
 
 
-				RenderableCube renderableCube{
-					.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
-					.cube_ = cube,
-					.shader_ = shader
-				};
-				m_Scene->AddComponent(entity, renderableCube);
+			RenderableCube renderableCube{
+				.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
+				.cube_ = cube,
+				.shader_ = shader
+			};
+			m_Scene->AddComponent(entity1, renderableCube);
 
-				Transform transform{
-					.position_ = glm::vec3(rander()* 1.0f, -3.0f + 1.0f * rander(), rander()*3 ),
-					.orientation_ = glm::vec3(00.0f * rander(), 00.0f * rander(), 00.0f * rander()),
-					.scale_ = glm::vec3(rander())
-				};
-				m_Scene->AddComponent(entity, transform);
+			Transform transform{
+				.position_ = glm::vec3(-20.0f, 0.0f, 0.0f),
+				.orientation_ = glm::vec3(0.0f),
+				.scale_ = glm::vec3(1.0f)
+			};
+			m_Scene->AddComponent(entity1, transform);
 
-				Gravity g{ .force_ = glm::vec3(0.0f, -9.81f + 2.0f * rander(),0.0f) };
-				m_Scene->AddComponent(entity, g);
+			Gravity g{ .force_ = glm::vec3(0.0f) };
+			m_Scene->AddComponent(entity1, g);
 
-				Velocity v;
-				v.velocity_ = glm::vec3(5.0f * rander(), 20.0f + 0.05 * rander(), 5.0f * rander());
-				m_Scene->AddComponent(entity, v);
+			Velocity v;
+			v.velocity_ = glm::vec3(5.0f, 0.0f, 0.0f);
+			m_Scene->AddComponent(entity1, v);
 
-			}
+			// Entity 2
+			Entity entity2 = m_Scene->CreateEntity();
+
+
+			RenderableCube renderableCube2{
+				.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
+				.cube_ = cube,
+				.shader_ = shader
+			};
+			m_Scene->AddComponent(entity2, renderableCube2);
+
+			Transform transform2{
+				.position_ = glm::vec3(20.0f, 0.0f, 0.0f),
+				.orientation_ = glm::vec3(0.0f),
+				.scale_ = glm::vec3(1.0f)
+			};
+			m_Scene->AddComponent(entity2, transform2);
+
+			Gravity g2{ .force_ = glm::vec3(0.0f) };
+			m_Scene->AddComponent(entity2, g2);
+
+			Velocity v2;
+			v2.velocity_ = glm::vec3(-5.0f, 0.0f, 0.0f);
+			m_Scene->AddComponent(entity2, v2);
+			
 			
 		}
 

@@ -26,18 +26,16 @@ public:
 
 	void Update(const float dt) override
 	{
-		for (auto& entity_1 : m_Entities) {
-			auto& transform_1 = m_ParentScene->GetComponent<Transform>(entity_1);
-			auto& collision_1 = m_ParentScene->GetComponent<Collidable>(entity_1);
-			auto& velocity_1 = m_ParentScene->GetComponent<Velocity>(entity_1);
+		for (auto entity_1 = m_Entities.begin(); entity_1 != m_Entities.end(); entity_1++) {
+			for (auto entity_2 = std::next(entity_1, 1); entity_2 != m_Entities.end(); entity_2++) {
 
-			for (auto& entity_2 : m_Entities) {
-				if (entity_1 == entity_2)
-					continue;
-				
-				auto& transform_2 = m_ParentScene->GetComponent<Transform>(entity_2);
-				auto& collision_2 = m_ParentScene->GetComponent<Collidable>(entity_2);
-				auto& velocity_2 = m_ParentScene->GetComponent<Velocity>(entity_2);
+				auto& transform_1 = m_ParentScene->GetComponent<Transform>(*entity_1);
+				auto& collision_1 = m_ParentScene->GetComponent<Collidable>(*entity_1);
+				auto& velocity_1 = m_ParentScene->GetComponent<Velocity>(*entity_1);
+
+				auto& transform_2 = m_ParentScene->GetComponent<Transform>(*entity_2);
+				auto& collision_2 = m_ParentScene->GetComponent<Collidable>(*entity_2);
+				auto& velocity_2 = m_ParentScene->GetComponent<Velocity>(*entity_2);
 
 				if (Intersects(collision_1.shape_.get(), transform_1, collision_2.shape_.get(), transform_2)) {
 					velocity_1.velocity_ = glm::vec3(0.0f);
