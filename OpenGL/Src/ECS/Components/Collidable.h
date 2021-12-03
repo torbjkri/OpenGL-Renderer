@@ -2,17 +2,17 @@
 
 #include <memory>
 
-struct CollisionShape {};
-
-struct CollisionBox : CollisionShape {
+struct CollisionShape {
 	float radius_;
 };
 
+struct CollisionBox : CollisionShape {
+};
+
 struct CollisionBall : CollisionShape {
-	float radius_;
 };
 
 
 struct Collidable {
-	std::unique_ptr<CollisionShape> shape_;
+	float radius_;
 };

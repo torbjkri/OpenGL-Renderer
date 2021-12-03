@@ -14,6 +14,7 @@
 
 #include "ECS/Systems/CubeRenderSystem.h"
 #include "ECS/Systems/PhysicsSystem.h"
+#include "ECS/Systems/CollisionSystem.h"
 
 #include <memory>
 #include <cstdlib>
@@ -50,6 +51,9 @@ namespace WE {
 			std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>(m_Scene);
 			m_Scene->AddInteractionSystem(std::move(physics));
 
+			std::unique_ptr<CollisionSystem> collisys = std::make_unique<CollisionSystem>(m_Scene);
+			m_Scene->AddInteractionSystem(std::move(collisys));
+
 
 			
 			Entity entity1 = m_Scene->CreateEntity();
@@ -76,6 +80,10 @@ namespace WE {
 			v.velocity_ = glm::vec3(5.0f, 0.0f, 0.0f);
 			m_Scene->AddComponent(entity1, v);
 
+			Collidable b;
+			b.radius_ = 1.0f;
+			m_Scene->AddComponent(entity1, b);
+
 			// Entity 2
 			Entity entity2 = m_Scene->CreateEntity();
 
@@ -98,9 +106,12 @@ namespace WE {
 			m_Scene->AddComponent(entity2, g2);
 
 			Velocity v2;
-			v2.velocity_ = glm::vec3(-5.0f, 0.0f, 0.0f);
+			v2.velocity_ = glm::vec3(-9.0f, 0.0f, 0.0f);
 			m_Scene->AddComponent(entity2, v2);
 			
+			Collidable b2;
+			b2.radius_ = 1.0f;
+			m_Scene->AddComponent(entity2, b2);
 			
 		}
 
