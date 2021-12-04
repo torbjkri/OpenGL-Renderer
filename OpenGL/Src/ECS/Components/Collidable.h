@@ -3,16 +3,17 @@
 #include <memory>
 
 struct CollisionShape {
-	float radius_;
+	virtual ~CollisionShape() {};
 };
 
 struct CollisionBox : CollisionShape {
 };
 
 struct CollisionBall : CollisionShape {
+	float radius_;
 };
 
 
 struct Collidable {
-	float radius_;
+	std::shared_ptr<CollisionShape> shape_;
 };
