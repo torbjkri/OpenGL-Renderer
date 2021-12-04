@@ -7,7 +7,6 @@
 #include "ECS/Components/Collidable.h"
 
 
-
 namespace WE { class Scene; }
 
 class CollisionSystem : public InteractionSystem
@@ -37,7 +36,8 @@ public:
 				auto& collision_2 = m_ParentScene->GetComponent<Collidable>(*entity_2);
 				auto& velocity_2 = m_ParentScene->GetComponent<Velocity>(*entity_2);
 
-				if (Intersects(collision_1, transform_1, collision_2, transform_2)) {
+
+				if (Intersects(dynamic_cast<CollisionBall*>(collision_1.shape_.get()), transform_1, dynamic_cast<CollisionBall*>(collision_2.shape_.get()), transform_2)) {
 					velocity_1.velocity_ = -velocity_1.velocity_;
 					velocity_2.velocity_ = -velocity_2.velocity_;
 				}
@@ -47,9 +47,9 @@ public:
 	}
 
 private:
-	bool Intersects(const Collidable ball_1, const Transform& pos_1, const Collidable ball_2, const Transform& pos_2)
+	bool Intersects(const CollisionBall* ball_1, const Transform& pos_1, const CollisionBall* ball_2, const Transform& pos_2)
 	{
 		const float r = glm::length(pos_1.position_ - pos_2.position_);
-		return r < ball_1.radius_ + ball_2.radius_;
+		return r < ball_1->radius_ + ball_2->radius_;
 	}
 };
