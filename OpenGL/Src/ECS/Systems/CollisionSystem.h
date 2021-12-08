@@ -6,8 +6,15 @@
 #include "ECS/Components/Transform.h"
 #include "ECS/Components/Collidable.h"
 
+#include <variant>
+
 
 namespace WE { class Scene; }
+
+template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
+template<class... Ts> overload(Ts...)->overload<Ts...>; // line not needed
+
+
 
 class CollisionSystem : public InteractionSystem
 {
@@ -25,6 +32,8 @@ public:
 
 	void Update(const float dt) override
 	{
+
+
 		for (auto entity_1 = m_Entities.begin(); entity_1 != m_Entities.end(); entity_1++) {
 			for (auto entity_2 = std::next(entity_1, 1); entity_2 != m_Entities.end(); entity_2++) {
 
@@ -37,19 +46,30 @@ public:
 				auto& velocity_2 = m_ParentScene->GetComponent<Velocity>(*entity_2);
 
 
-				if (Intersects(dynamic_cast<CollisionBall*>(collision_1.shape_.get()), transform_1, dynamic_cast<CollisionBall*>(collision_2.shape_.get()), transform_2)) {
+				if (std::visit(overload{
+						[](CollisionBall& ball1, CollisionBall& ball2, Transform& t1, Transform&t2) {
+						const float r = glm::length(t1.position_ - t2.position_);
+						return r < ball1.radius_ + ball2.radius_;
+					},
+					[](CollisionBall& ball1, CollisionBox& ball2, Transform& t1, Transform& t2) {
+						return false;
+					},
+					[](CollisionBox& ball1, CollisionBall& ball2, Transform& t1, Transform& t2) {
+						return false;
+					},
+					[](CollisionBox& ball1, CollisionBox& ball2, Transform& t1, Transform& t2) {
+						return false;
+					}
+					}, collision_1.shape_, collision_2.shape_, std::variant<int, Transform>{transform_1}, std::variant<int, Transform>{transform_2})) {
 					velocity_1.velocity_ = -velocity_1.velocity_;
 					velocity_2.velocity_ = -velocity_2.velocity_;
 				}
+
 
 			}
 		}
 	}
 
 private:
-	bool Intersects(const CollisionBall* ball_1, const Transform& pos_1, const CollisionBall* ball_2, const Transform& pos_2)
-	{
-		const float r = glm::length(pos_1.position_ - pos_2.position_);
-		return r < ball_1->radius_ + ball_2->radius_;
-	}
+	
 };

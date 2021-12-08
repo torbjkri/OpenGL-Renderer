@@ -83,7 +83,7 @@ namespace WE {
 			Collidable b;
 			CollisionBall ball;
 			ball.radius_ = 1.0f;
-			b.shape_ = std::make_unique<CollisionBall>(std::move(ball));
+			b.shape_ = std::move(ball);
 			m_Scene->AddComponent(entity1, b);
 
 			// Entity 2
@@ -114,7 +114,7 @@ namespace WE {
 			Collidable b2;
 			CollisionBall ball2;
 			ball2.radius_ = 1.0f;
-			b2.shape_ = std::make_unique<CollisionBall>(std::move(ball2));
+			b2.shape_ = std::move(ball2);
 			m_Scene->AddComponent(entity2, b2);
 			
 		}
