@@ -55,68 +55,80 @@ namespace WE {
 			m_Scene->AddInteractionSystem(std::move(collisys));
 
 
-			
-			Entity entity1 = m_Scene->CreateEntity();
+
+			for (int i = 0; i < 40; i++) {
+
+				Entity entity1 = m_Scene->CreateEntity();
 
 
-			RenderableCube renderableCube{
-				.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
+				RenderableCube renderableCube{
+					.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
+					.cube_ = cube,
+					.shader_ = shader
+				};
+				m_Scene->AddComponent(entity1, renderableCube);
+
+
+				TransformState init_state{
+					.position_ = glm::vec3(rander()*20.0f, rander() *6.0f + 3.0f, rander() * 15.0f - 15.0f),
+					.orientation_ = glm::vec3(0.0f),
+					.scale_ = glm::vec3(1.0f)
+				};
+
+				Transform t{ init_state, init_state };
+
+				m_Scene->AddComponent(entity1, t);
+
+				Gravity g;
+				m_Scene->AddComponent(entity1, g);
+
+				Velocity v;
+				v.velocity_ = glm::vec3(rander()*5.0f, rander()*5.0f, 0.0f);
+				m_Scene->AddComponent(entity1, v);
+
+				Collidable b;
+				CollisionBox box;
+				box.size_ = t.curr_state_.scale_;
+				b.shape_ = std::move(box);
+				m_Scene->AddComponent(entity1, b);
+
+			}
+
+			// Floor
+			Entity floor = m_Scene->CreateEntity();
+
+
+			RenderableCube floorCube{
+				.color_ = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f),
 				.cube_ = cube,
 				.shader_ = shader
 			};
-			m_Scene->AddComponent(entity1, renderableCube);
+			m_Scene->AddComponent(floor, floorCube);
 
-			Transform transform{
-				.position_ = glm::vec3(-20.0f, 0.0f, 0.0f),
+
+
+			TransformState fstate{
+				.position_ = glm::vec3(0.0f, -8.0f, 0.0f),
 				.orientation_ = glm::vec3(0.0f),
-				.scale_ = glm::vec3(1.0f)
+				.scale_ = glm::vec3(30.0f, 0.1f, 30.0f)
 			};
-			m_Scene->AddComponent(entity1, transform);
 
-			Gravity g{ .force_ = glm::vec3(0.0f) };
-			m_Scene->AddComponent(entity1, g);
+			Transform tf{ fstate, fstate };
 
-			Velocity v;
-			v.velocity_ = glm::vec3(5.0f, 0.0f, 0.0f);
-			m_Scene->AddComponent(entity1, v);
+			m_Scene->AddComponent(floor, tf);
 
-			Collidable b;
-			CollisionBox box;
-			box.size_ = transform.scale_;
-			b.shape_ = std::move(box);
-			m_Scene->AddComponent(entity1, b);
+			Gravity rg{ .force_ = glm::vec3(0.0f) };
+			m_Scene->AddComponent(floor, rg);
 
-			// Entity 2
-			Entity entity2 = m_Scene->CreateEntity();
+			Velocity rv;
+			rv.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
+			m_Scene->AddComponent(floor, rv);
 
-
-			RenderableCube renderableCube2{
-				.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
-				.cube_ = cube,
-				.shader_ = shader
-			};
-			m_Scene->AddComponent(entity2, renderableCube2);
-
-			Transform transform2{
-				.position_ = glm::vec3(20.0f, 0.0f, 0.0f),
-				.orientation_ = glm::vec3(0.0f),
-				.scale_ = glm::vec3(1.0f)
-			};
-			m_Scene->AddComponent(entity2, transform2);
-
-			Gravity g2{ .force_ = glm::vec3(0.0f) };
-			m_Scene->AddComponent(entity2, g2);
-
-			Velocity v2;
-			v2.velocity_ = glm::vec3(-9.0f, 0.0f, 0.0f);
-			m_Scene->AddComponent(entity2, v2);
-			
-			Collidable b2;
-			CollisionBox box2;
-			box2.size_ = transform2.scale_;
-			b2.shape_ = std::move(box2);
-			m_Scene->AddComponent(entity2, b2);
-			
+			Collidable fb;
+			CollisionBox fbox;
+			fbox.size_ = fstate.scale_;
+			fb.shape_ = std::move(fbox);
+			m_Scene->AddComponent(floor, fb);
 		}
 
 	}

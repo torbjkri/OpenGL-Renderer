@@ -13,20 +13,20 @@
 namespace WE { class Scene; }
 
 struct CollisionVisitor {
-	bool operator()(CollisionBall& ball1, CollisionBall& ball2, Transform& t1, Transform& t2)
+	bool operator()(CollisionBall& ball1, CollisionBall& ball2, TransformState& t1, TransformState& t2)
 	{
 		const float r = glm::length(t1.position_ - t2.position_);
 		return r < ball1.radius_ + ball2.radius_;
 	}
-	bool operator()(CollisionBall& ball1, CollisionBox& ball2, Transform& t1, Transform& t2)
+	bool operator()(CollisionBall& ball1, CollisionBox& ball2, TransformState& t1, TransformState& t2)
 	{
 		return false;
 	}
-	bool operator()(CollisionBox& ball1, CollisionBall& ball2, Transform& t1, Transform& t2)
+	bool operator()(CollisionBox& ball1, CollisionBall& ball2, TransformState& t1, TransformState& t2)
 	{
 		return false;
 	}
-	bool operator()(CollisionBox& ball1, CollisionBox& ball2, Transform& t1, Transform& t2)
+	bool operator()(CollisionBox& ball1, CollisionBox& ball2, TransformState& t1, TransformState& t2)
 	{
 		// Simple AABB
 		if (glm::length(t1.position_.x - t2.position_.x) < ball1.size_.x + ball2.size_.x) {
@@ -73,9 +73,11 @@ public:
 				auto& collision_2 = m_ParentScene->GetComponent<Collidable>(*entity_2);
 				auto& velocity_2 = m_ParentScene->GetComponent<Velocity>(*entity_2);
 
-				auto f = std::bind(CollisionVisitor(), std::placeholders::_1, std::placeholders::_2, transform_1, transform_2);
+				auto f = std::bind(CollisionVisitor(), std::placeholders::_1, std::placeholders::_2, transform_1.curr_state_, transform_2.curr_state_);
 
 				if (std::visit(f , collision_1.shape_, collision_2.shape_)) {
+					transform_1.curr_state_ = transform_1.prev_state_;
+					transform_2.curr_state_ = transform_2.prev_state_;
 					velocity_1.velocity_ = -velocity_1.velocity_;
 					velocity_2.velocity_ = -velocity_2.velocity_;
 				}
