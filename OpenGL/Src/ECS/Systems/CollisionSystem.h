@@ -9,6 +9,11 @@
 #include <variant>
 #include <functional>
 
+#include <glm/gtx/vector_angle.hpp>
+#include <glm/glm.hpp>
+
+
+
 
 namespace WE { class Scene; }
 
@@ -78,8 +83,10 @@ public:
 				if (std::visit(f , collision_1.shape_, collision_2.shape_)) {
 					transform_1.curr_state_ = transform_1.prev_state_;
 					transform_2.curr_state_ = transform_2.prev_state_;
-					velocity_1.velocity_ = -velocity_1.velocity_;
-					velocity_2.velocity_ = -velocity_2.velocity_;
+
+					velocity_1.velocity_ = glm::reflect(velocity_1.velocity_, glm::vec3(0.0f, 1.0f, 0.0f));
+					velocity_2.velocity_ = glm::reflect(velocity_2.velocity_, glm::vec3(0.0f, 1.0f, 0.0f));
+
 				}
 
 
