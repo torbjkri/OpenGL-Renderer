@@ -18,7 +18,7 @@ class CubeRenderSystem : public RenderSystem
 {
 private:
 
-	glm::mat4 CreateModelMatrix(Transform& transform)
+	glm::mat4 CreateModelMatrix(TransformState& transform)
 	{
 		glm::mat4 R(1.0f);
 		R = glm::translate(R, transform.position_);
@@ -54,7 +54,7 @@ public:
 			renderable.cube_->Bind();
 			renderable.shader_->SetUniform4fv("u_Color", 1, renderable.color_);
 
-			glm::mat4 R = CreateModelMatrix(transform);
+			glm::mat4 R = CreateModelMatrix(transform.curr_state_);
 			R = modelView * R;
 
 			renderable.shader_->SetUniformMatrix4fv("u_ProjectionViewModel", 1, R);
