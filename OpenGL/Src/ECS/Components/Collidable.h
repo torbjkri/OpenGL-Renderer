@@ -2,6 +2,9 @@
 
 #include <memory>
 #include <variant>
+#include <array>
+
+#include <glm/vec3.hpp>
 
 enum class CollisionType {Ball, Cube};
 
@@ -9,12 +12,8 @@ struct CollisionShape {
 	virtual ~CollisionShape() {};
 };
 
-template<typename T>
-struct CollisionShapeCRTP : public CollisionShape {
-	virtual CollisionShape* Get() { return static_cast<T*>(this); }
-};
-
 struct CollisionBox : public CollisionShape {
+	glm::vec3 size_ = glm::vec3(1.0f);
 };
 
 struct CollisionBall : public CollisionShape {

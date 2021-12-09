@@ -13,19 +13,33 @@
 namespace WE { class Scene; }
 
 struct CollisionVisitor {
-	 bool operator()(CollisionBall& ball1, CollisionBall& ball2, Transform& t1, Transform& t2) {
+	bool operator()(CollisionBall& ball1, CollisionBall& ball2, Transform& t1, Transform& t2)
+	{
 		const float r = glm::length(t1.position_ - t2.position_);
 		return r < ball1.radius_ + ball2.radius_;
-	 }
-	 bool operator()(CollisionBall& ball1, CollisionBox& ball2, Transform& t1, Transform& t2) {
+	}
+	bool operator()(CollisionBall& ball1, CollisionBox& ball2, Transform& t1, Transform& t2)
+	{
 		return false;
-	 }
-	 bool operator()(CollisionBox& ball1, CollisionBall& ball2, Transform& t1, Transform& t2) {
+	}
+	bool operator()(CollisionBox& ball1, CollisionBall& ball2, Transform& t1, Transform& t2)
+	{
 		return false;
-	 }
-	 bool operator()(CollisionBox& ball1, CollisionBox& ball2, Transform& t1, Transform& t2) {
-		return false;
-	 }
+	}
+	bool operator()(CollisionBox& ball1, CollisionBox& ball2, Transform& t1, Transform& t2)
+	{
+		// Simple AABB
+		if (glm::length(t1.position_.x - t2.position_.x) < ball1.size_.x + ball2.size_.x) {
+			if (glm::length(t1.position_.y - t2.position_.y) < ball1.size_.y + ball2.size_.y) {
+				if (glm::length(t1.position_.z - t2.position_.z) < ball1.size_.z + ball2.size_.z) {
+					return true;
+				}
+			}
+		}
+
+
+	return false;
+	}
 };
 
 
