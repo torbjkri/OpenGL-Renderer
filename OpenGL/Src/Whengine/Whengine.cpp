@@ -56,7 +56,7 @@ namespace WE {
 
 
 
-			for (int i = 0; i < 40; i++) {
+			for (int i = 0; i < 115; i++) {
 
 				Entity entity1 = m_Scene->CreateEntity();
 
