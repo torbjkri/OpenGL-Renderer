@@ -246,6 +246,7 @@
     <None Include="Resources\Shaders\Lighting\BasicShader.glsl" />
     <None Include="Resources\Shaders\Lighting\Light.glsl" />
     <None Include="Resources\Shaders\Model-Loading\BasicModel.glsl" />
+    <None Include="Src\ECS\Components\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\container2.png" />
