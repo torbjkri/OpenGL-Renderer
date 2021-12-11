@@ -29,3 +29,6 @@ Not hard todos but indications of things I want to implement or change
 			-  component manager should not control it
 		- Implement observer pattern between parts to notify creation and destruction of entities.
 			- This might come in along with input controls
+
+- Lighting!
+	- Need to get that specular niceness back
