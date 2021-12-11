@@ -1,5 +1,5 @@
 #include "Whengine.h"
-#include <GL/Camera.h>w
+#include <GL/Camera.h>
 #include "Scene.h"
 
 #include "ECS/Core/Entity.hpp"
@@ -41,11 +41,16 @@ namespace WE {
 
 		/* Load scene */
 		{
+			std::shared_ptr<BallData> ball = std::make_shared<BallData>();
 			std::shared_ptr<CubeData> cube = std::make_shared<CubeData>();
+
 			std::shared_ptr<Shader> shader = std::make_shared<Shader>("Resources/Shaders/Basic/BasicColor.shader");
 
 			std::unique_ptr<CubeRenderSystem> cubeRenderer = std::make_unique<CubeRenderSystem>(m_Scene);
 			m_Scene->AddRenderSystem(std::move(cubeRenderer));
+
+			std::unique_ptr<BallRenderSystem> ballRenderer = std::make_unique<BallRenderSystem>(m_Scene);
+			m_Scene->AddRenderSystem(std::move(ballRenderer));
 
 			std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>(m_Scene);
 			m_Scene->AddInteractionSystem(std::move(physics));
@@ -55,21 +60,22 @@ namespace WE {
 
 
 
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 100; i++) {
 
 				Entity entity1 = m_Scene->CreateEntity();
 
 
-				RenderableCube renderableCube{
+				RenderableBall renderableCube{
 					.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
-					.cube_ = cube,
+					.cube_ = ball,
 					.shader_ = shader
 				};
 				m_Scene->AddComponent(entity1, renderableCube);
 
 
 				TransformState init_state{
-					.position_ = glm::vec3(rander()*20.0f, rander() *6.0f + 3.0f, rander() * 15.0f - 15.0f),
+					.position_ = glm::vec3(rander()*20.0f, rander() *6.0f + 3.0f, rander() * 15.0f - 5.0f),
+					//.position_ = glm::vec3(0.0f, 0.0f, 18.0f),
 					.orientation_ = glm::vec3(0.0f),
 					.scale_ = glm::vec3(1.0f)
 				};
@@ -78,11 +84,12 @@ namespace WE {
 
 				m_Scene->AddComponent(entity1, t);
 
-				Gravity g;
+				Gravity g;//{.force_ = glm::vec3(0.0f)};
 				m_Scene->AddComponent(entity1, g);
 
 				Velocity v;
 				v.velocity_ = glm::vec3(rander()*5.0f, rander()*5.0f, 0.0f);
+				//v.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
 				m_Scene->AddComponent(entity1, v);
 
 				Collidable b;
