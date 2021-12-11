@@ -1,6 +1,5 @@
 #include "Whengine.h"
-#include <GL/Camera.h>
-#include "SceneLoader.h"
+#include <GL/Camera.h>w
 #include "Scene.h"
 
 #include "ECS/Core/Entity.hpp"
@@ -56,7 +55,7 @@ namespace WE {
 
 
 
-			for (int i = 0; i < 115; i++) {
+			for (int i = 0; i < 1; i++) {
 
 				Entity entity1 = m_Scene->CreateEntity();
 
