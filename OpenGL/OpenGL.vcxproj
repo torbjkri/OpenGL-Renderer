@@ -167,23 +167,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Examples\Model_Loading\Mesh_Chapter.cpp" />
     <ClCompile Include="Examples\WhengineTest\WhengineTest.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\Core\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\InputHandler.cpp" />
-    <ClCompile Include="Src\GL\Renderable\Cube.cpp" />
-    <ClCompile Include="Src\GL\Renderable\Mesh.cpp" />
-    <ClCompile Include="Src\GL\Renderable\Model.cpp" />
-    <ClCompile Include="Src\GL\Renderable\ObjectRenderer.cpp" />
-    <ClCompile Include="Src\GL\Renderable\Light.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
     <ClCompile Include="Src\GL\Core\Shader.cpp" />
     <ClCompile Include="Src\GL\Core\Texture.cpp" />
     <ClCompile Include="Src\GL\Core\VertexArray.cpp" />
     <ClCompile Include="Src\GUI\ImGuiWrapper.cpp" />
     <ClCompile Include="Src\GL\Core\GLContext.cpp" />
-    <ClCompile Include="Src\Whengine\SceneLoader.cpp" />
     <ClCompile Include="Src\Whengine\Whengine.cpp" />
     <ClCompile Include="Src\Whengine\Scene.cpp" />
     <ClCompile Include="Vendor\glad\glad.c" />
@@ -202,7 +195,6 @@
     <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Examples\Model_Loading\Mesh_Chapter.h" />
     <ClInclude Include="Examples\WhengineTest\WhengineTest.h" />
     <ClInclude Include="Src\ECS\Components\Collidable.h" />
     <ClInclude Include="Src\ECS\Components\Gravity.h" />
@@ -222,13 +214,6 @@
     <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />
     <ClInclude Include="Src\GL\InputHandler.h" />
-    <ClInclude Include="Src\GL\Renderable\Mesh.h" />
-    <ClInclude Include="Src\GL\Renderable\Cube.h" />
-    <ClInclude Include="Src\GL\Renderable\Light.h" />
-    <ClInclude Include="Src\GL\Renderable\Model.h" />
-    <ClInclude Include="Src\GL\Renderable\ObjectProperties.h" />
-    <ClInclude Include="Src\GL\Renderable\ObjectRenderer.h" />
-    <ClInclude Include="Src\GL\Renderable\RenderableObject.h" />
     <ClInclude Include="Src\GL\ResourceManager.h" />
     <ClInclude Include="Src\GL\Core\Shader.h" />
     <ClInclude Include="Src\GL\Core\Texture.h" />
@@ -237,7 +222,6 @@
     <ClInclude Include="Src\GL\Core\VerticeStructs.h" />
     <ClInclude Include="Src\GUI\ImGuiWrapper.h" />
     <ClInclude Include="Src\GL\Core\GLContext.h" />
-    <ClInclude Include="Src\Whengine\SceneLoader.h" />
     <ClInclude Include="Src\Whengine\Whengine.h" />
     <ClInclude Include="Src\Whengine\Scene.h" />
     <ClInclude Include="Vendor\ImGui\imconfig.h" />
