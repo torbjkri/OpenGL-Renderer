@@ -221,7 +221,6 @@
     <None Include="Resources\Shaders\Model-Loading\BasicModel.glsl" />
     <None Include="Resources\Scenes\boxlight.json" />
     <None Include="Resources\Scenes\myfile.json" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\smiley.png">
