@@ -36,6 +36,7 @@ public:
 
 			transform.prev_state_ = transform.curr_state_;
 			transform.curr_state_.position_ += velocity.velocity_ * dt;
+
 		}
 	}
 };

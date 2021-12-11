@@ -168,6 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Examples\WhengineTest\WhengineTest.cpp" />
+    <ClCompile Include="Src\ECS\Components\RenderableBall.cpp" />
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\Core\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\InputHandler.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Examples\WhengineTest\WhengineTest.h" />
     <ClInclude Include="Src\ECS\Components\Collidable.h" />
     <ClInclude Include="Src\ECS\Components\Gravity.h" />
+    <ClInclude Include="Src\ECS\Components\RenderableBall.h" />
     <ClInclude Include="Src\ECS\Components\Transform.h" />
     <ClInclude Include="Src\ECS\Components\Velocity.h" />
     <ClInclude Include="Src\ECS\Core\Component.h" />
