@@ -11,6 +11,17 @@
 
 #include <string>
 
+Model::Model(const std::string path)
+{
+	LoadModel(path);
+}
+
+void Model::Render(Shader* shader, const glm::mat4 scene_state)
+{
+	for (auto& mesh : m_Meshes)
+		mesh.Render(shader, scene_state);
+}
+
 void Model::LoadModel(const std::string path)
 {
 	Assimp::Importer importer;
@@ -29,23 +40,26 @@ void Model::LoadModel(const std::string path)
 	}
 
 	auto directory = path.substr(0, path.find_last_of('/'));
-
+	
 	ProcessNode(scene->mRootNode, scene, directory);
 }
 
 void Model::ProcessNode(aiNode* node, const aiScene* scene, const std::string& directory)
 {
-	// Process all meshes at currrent node
 	for (unsigned int i = 0; i < node->mNumMeshes; i++) {
 		// Scene contains actual mesh data, node only contains index
 		auto* mesh = scene->mMeshes[node->mMeshes[i]];
 		m_Meshes.push_back(ProcessMesh(mesh, scene, directory));
 	}
+
+	for (unsigned int i = 0; i < node->mNumChildren; i++) {
+		ProcessNode(node->mChildren[i], scene, directory);
+	}
 }
 
 Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& directory)
 {
-	std::vector<PositionNormalVertex> vertices;
+	std::vector<PositionVertex> vertices;
 	std::vector<TriangleIndices> indices;
 
 	// Iterate over vertices and store them
@@ -53,8 +67,7 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 
 		// I always assume we have normals
 		vertices.emplace_back(
-			PositionNormalVertex{ {mesh->mVertices[i].x, mesh->mVertices[i].y , mesh->mVertices[i].z },
-								 {mesh->mNormals[i].x, mesh->mNormals[i].y , mesh->mNormals[i].z } }
+			PositionVertex{ {mesh->mVertices[i].x, mesh->mVertices[i].y , mesh->mVertices[i].z } }
 		);
 
 		// Just keeping this until I actually need it

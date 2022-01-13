@@ -6,6 +6,8 @@
 #include "GL/Core/VertexBuffer.h"
 #include "GL/Core/ElementBuffer.h"
 
+#include "GL/Core/Shader.h"
+
 #include <vector>
 
 
@@ -15,7 +17,8 @@ class Mesh
 public:
 	VertexArray vao_;
 
-	Mesh(std::vector<PositionNormalVertex>& vertices, std::vector<TriangleIndices>& indices);
+	Mesh(std::vector<PositionVertex>& vertices, std::vector<TriangleIndices>& indices);
+	void Render(Shader* shader, const glm::mat4 scene_state);
 
 private:
 	VertexBuffer vbo_;

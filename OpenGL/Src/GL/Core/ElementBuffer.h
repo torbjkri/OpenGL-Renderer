@@ -4,11 +4,16 @@
 
 #include <GL/Core/VerticeStructs.h>
 
+/*
+	TODO: Stop using internal GL types GLuint etc, it's just messy
+*/
+
 class ElementBuffer
 {
 private:
 	// ID reference of Element Buffer Object
 	GLuint m_RendererID;
+	unsigned int m_NumElements;
 
 public:
 	// Constructor that generates an Element Buffer Object and links it to indices
@@ -23,5 +28,7 @@ public:
 
 	// Unbind the Element Buffer Object
 	void Unbind();
+
+	unsigned int NumElements();
 };
 

@@ -202,6 +202,7 @@
     <ClInclude Include="Src\ECS\Components\Collidable.h" />
     <ClInclude Include="Src\ECS\Components\Gravity.h" />
     <ClInclude Include="Src\ECS\Components\RenderableBall.h" />
+    <ClInclude Include="Src\ECS\Components\RenderableModel.h" />
     <ClInclude Include="Src\ECS\Components\Transform.h" />
     <ClInclude Include="Src\ECS\Components\Velocity.h" />
     <ClInclude Include="Src\ECS\Core\Component.h" />
