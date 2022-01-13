@@ -6,6 +6,7 @@
 
 ElementBuffer::ElementBuffer(std::vector<GLuint>& indices)
 	: m_RendererID(0)
+	, m_NumElements(indices.size())
 {
 	glGenBuffers(1, &m_RendererID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
@@ -30,3 +31,9 @@ void ElementBuffer::Unbind()
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
+
+unsigned int ElementBuffer::NumElements()
+{
+	return m_NumElements;
+}
+

@@ -41,22 +41,9 @@ namespace WE {
 
 		/* Load scene */
 		{
-			std::shared_ptr<BallData> ball = std::make_shared<BallData>();
-			std::shared_ptr<CubeData> cube = std::make_shared<CubeData>();
+			std::shared_ptr<Model> model = std::make_shared<Model>("C:/Users/torbj/Documents/Blender/GLModels/blank-box/blank-box.obj");
 
 			std::shared_ptr<Shader> shader = std::make_shared<Shader>("Resources/Shaders/Basic/BasicColor.shader");
-
-			std::unique_ptr<CubeRenderSystem> cubeRenderer = std::make_unique<CubeRenderSystem>(m_Scene);
-			m_Scene->AddRenderSystem(std::move(cubeRenderer));
-
-			std::unique_ptr<BallRenderSystem> ballRenderer = std::make_unique<BallRenderSystem>(m_Scene);
-			m_Scene->AddRenderSystem(std::move(ballRenderer));
-
-			std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>(m_Scene);
-			m_Scene->AddInteractionSystem(std::move(physics));
-
-			std::unique_ptr<CollisionSystem> collisys = std::make_unique<CollisionSystem>(m_Scene);
-			m_Scene->AddInteractionSystem(std::move(collisys));
 
 
 
@@ -65,12 +52,11 @@ namespace WE {
 				Entity entity1 = m_Scene->CreateEntity();
 
 
-				RenderableBall renderableCube{
-					.color_ = glm::vec4(rander(), rander(), rander(), 1.0f),
-					.cube_ = ball,
+				RenderableModel renderableModel{
+					.model_ = model,
 					.shader_ = shader
 				};
-				m_Scene->AddComponent(entity1, renderableCube);
+				m_Scene->AddComponent(entity1, renderableModel);
 
 
 				TransformState init_state{
@@ -84,57 +70,57 @@ namespace WE {
 
 				m_Scene->AddComponent(entity1, t);
 
-				Gravity g;//{.force_ = glm::vec3(0.0f)};
-				m_Scene->AddComponent(entity1, g);
+				//Gravity g;//{.force_ = glm::vec3(0.0f)};
+				//m_Scene->AddComponent(entity1, g);
 
-				Velocity v;
-				v.velocity_ = glm::vec3(rander()*5.0f, rander()*5.0f, 0.0f);
-				//v.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
-				m_Scene->AddComponent(entity1, v);
+				//Velocity v;
+				//v.velocity_ = glm::vec3(rander()*5.0f, rander()*5.0f, 0.0f);
+				////v.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
+				//m_Scene->AddComponent(entity1, v);
 
-				Collidable b;
-				CollisionBox box;
-				box.size_ = t.curr_state_.scale_;
-				b.shape_ = std::move(box);
-				m_Scene->AddComponent(entity1, b);
+				//Collidable b;
+				//CollisionBox box;
+				//box.size_ = t.curr_state_.scale_;
+				//b.shape_ = std::move(box);
+				//m_Scene->AddComponent(entity1, b);
 
 			}
 
 			// Floor
-			Entity floor = m_Scene->CreateEntity();
-
-
-			RenderableCube floorCube{
-				.color_ = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f),
-				.cube_ = cube,
-				.shader_ = shader
-			};
-			m_Scene->AddComponent(floor, floorCube);
-
-
-
-			TransformState fstate{
-				.position_ = glm::vec3(0.0f, -8.0f, 0.0f),
-				.orientation_ = glm::vec3(0.0f),
-				.scale_ = glm::vec3(30.0f, 0.1f, 30.0f)
-			};
-
-			Transform tf{ fstate, fstate };
-
-			m_Scene->AddComponent(floor, tf);
-
-			Gravity rg{ .force_ = glm::vec3(0.0f) };
-			m_Scene->AddComponent(floor, rg);
-
-			Velocity rv;
-			rv.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
-			m_Scene->AddComponent(floor, rv);
-
-			Collidable fb;
-			CollisionBox fbox;
-			fbox.size_ = fstate.scale_;
-			fb.shape_ = std::move(fbox);
-			m_Scene->AddComponent(floor, fb);
+			//Entity floor = m_Scene->CreateEntity();
+			//
+			//
+			//RenderableCube floorCube{
+			//	.color_ = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f),
+			//	.cube_ = cube,
+			//	.shader_ = shader
+			//};
+			//m_Scene->AddComponent(floor, floorCube);
+			//
+			//
+			//
+			//TransformState fstate{
+			//	.position_ = glm::vec3(0.0f, -8.0f, 0.0f),
+			//	.orientation_ = glm::vec3(0.0f),
+			//	.scale_ = glm::vec3(30.0f, 0.1f, 30.0f)
+			//};
+			//
+			//Transform tf{ fstate, fstate };
+			//
+			//m_Scene->AddComponent(floor, tf);
+			//
+			//Gravity rg{ .force_ = glm::vec3(0.0f) };
+			//m_Scene->AddComponent(floor, rg);
+			//
+			//Velocity rv;
+			//rv.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
+			//m_Scene->AddComponent(floor, rv);
+			//
+			//Collidable fb;
+			//CollisionBox fbox;
+			//fbox.size_ = fstate.scale_;
+			//fb.shape_ = std::move(fbox);
+			//m_Scene->AddComponent(floor, fb);
 		}
 
 	}

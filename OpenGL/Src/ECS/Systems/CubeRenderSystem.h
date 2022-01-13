@@ -3,6 +3,7 @@
 #include "ECS/Core/System.h"
 #include "Whengine/Scene.h"
 
+#include "ECS/Components/RenderableModel.h"
 #include "ECS/Components/RenderableBall.h"
 #include "ECS/Components/RenderableCube.h"
 #include "ECS/Components/Transform.h"
@@ -85,6 +86,32 @@ public:
 			renderable.Render();
 
 
+		}
+	}
+};
+
+class ModelRenderSystem : public RenderSystem
+{
+public:
+	ModelRenderSystem(std::shared_ptr<WE::Scene> scene)
+		: RenderSystem(scene)
+	{
+		m_ParentScene->RegisterComponent<RenderableModel>();
+		m_ParentScene->RegisterComponent<Transform>();
+
+		m_Signature.set(m_ParentScene->GetComponentType<RenderableModel>());
+		m_Signature.set(m_ParentScene->GetComponentType<Transform>());
+	}
+
+	void Render() override
+	{
+		glm::mat4 modelView = m_ParentScene->GetSceneProjectionView();
+
+		for (auto& entity : m_Entities) {
+			auto& renderable = m_ParentScene->GetComponent<RenderableModel>(entity);
+			auto& transform = m_ParentScene->GetComponent<Transform>(entity);
+			
+			renderable.Render();
 		}
 	}
 };

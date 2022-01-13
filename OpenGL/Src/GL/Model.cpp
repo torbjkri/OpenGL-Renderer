@@ -11,6 +11,17 @@
 
 #include <string>
 
+Model::Model(const std::string path)
+{
+	LoadModel(path);
+}
+
+void Model::Render(Shader* shader)
+{
+	for (auto& mesh : m_Meshes)
+		mesh.Render(shader);
+}
+
 void Model::LoadModel(const std::string path)
 {
 	Assimp::Importer importer;
