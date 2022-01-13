@@ -116,11 +116,6 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 	//std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
 	//textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
-	/* TODO: Current state of things, continue here.
-	-  Move model to resources folder
-	-  Need rendering system
-	-  Should this be a component?
-	-  Need shader! In learnopengl mesh has Draw function which accepts a shader.
-	*/
+	
 	return Mesh(vertices, indices);
 }
