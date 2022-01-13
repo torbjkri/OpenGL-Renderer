@@ -87,11 +87,11 @@ namespace WE {
 				//v.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
 				m_Scene->AddComponent(entity1, v);
 
-				Collidable b;
-				CollisionBox box;
-				box.size_ = t.curr_state_.scale_;
-				b.shape_ = std::move(box);
-				m_Scene->AddComponent(entity1, b);
+				//Collidable b;
+				//CollisionBox box;
+				//box.size_ = t.curr_state_.scale_;
+				//b.shape_ = std::move(box);
+				//m_Scene->AddComponent(entity1, b);
 
 			}
 
