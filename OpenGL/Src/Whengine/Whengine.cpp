@@ -41,15 +41,21 @@ namespace WE {
 
 		/* Load scene */
 		{
-			std::shared_ptr<Model> model = std::make_shared<Model>("C:/Users/torbj/Documents/Blender/GLModels/blank-box/blank-box.obj");
+			std::shared_ptr<Model> model = std::make_shared<Model>("C:/Users/torbj/Documents/Blender/GLModels/blank-ball/blank-ball.obj");
 
 			std::shared_ptr<Shader> shader = std::make_shared<Shader>("Resources/Shaders/Basic/BasicColor.shader");
 
 			auto modelRenderer = std::make_unique<ModelRenderSystem>(m_Scene);
 			m_Scene->AddRenderSystem(std::move(modelRenderer));
 
+			std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>(m_Scene);
+			m_Scene->AddInteractionSystem(std::move(physics));
 
-			for (int i = 0; i < 100; i++) {
+			//std::unique_ptr<CollisionSystem> collisys = std::make_unique<CollisionSystem>(m_Scene);
+			//m_Scene->AddInteractionSystem(std::move(collisys));
+
+
+			for (int i = 0; i < 1; i++) {
 
 				Entity entity1 = m_Scene->CreateEntity();
 
@@ -62,7 +68,7 @@ namespace WE {
 
 
 				TransformState init_state{
-					.position_ = glm::vec3(rander()*20.0f, rander() *6.0f + 3.0f, rander() * 15.0f - 5.0f),
+					.position_ = glm::vec3(0,0,0),
 					//.position_ = glm::vec3(0.0f, 0.0f, 18.0f),
 					.orientation_ = glm::vec3(0.0f),
 					.scale_ = glm::vec3(1.0f)
@@ -72,11 +78,12 @@ namespace WE {
 
 				m_Scene->AddComponent(entity1, t);
 
-				Gravity g;//{.force_ = glm::vec3(0.0f)};
+				Gravity g{.force_ = glm::vec3(0.0f)};
 				m_Scene->AddComponent(entity1, g);
 
 				Velocity v;
-				v.velocity_ = glm::vec3(rander()*5.0f, rander()*5.0f, 0.0f);
+				v.linear_ = glm::vec3(0.0f, 0.0f, 0.0f);
+				v.angular_ = glm::vec3(0.0f, 20.0f, 0.0f);
 				//v.velocity_ = glm::vec3(0.0f, 0.0f, 0.0f);
 				m_Scene->AddComponent(entity1, v);
 
@@ -136,6 +143,8 @@ void Whengine::Run()
 		m_Scene->Update(0.01f);
 		m_Scene->RenderScene();
 		m_Context->EndFrame();
+
+		// TODO: Chrono timing
 	}
 
 	/*Update scene */

@@ -84,8 +84,8 @@ public:
 					transform_1.curr_state_ = transform_1.prev_state_;
 					transform_2.curr_state_ = transform_2.prev_state_;
 
-					velocity_1.velocity_ = glm::reflect(velocity_1.velocity_, glm::vec3(0.0f, 1.0f, 0.0f));
-					velocity_2.velocity_ = glm::reflect(velocity_2.velocity_, glm::vec3(0.0f, 1.0f, 0.0f));
+					velocity_1.linear_ = glm::reflect(velocity_1.linear_, glm::vec3(0.0f, 1.0f, 0.0f));
+					velocity_2.linear_ = glm::reflect(velocity_2.linear_, glm::vec3(0.0f, 1.0f, 0.0f));
 
 				}
 

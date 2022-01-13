@@ -15,6 +15,8 @@ ElementBuffer::ElementBuffer(std::vector<GLuint>& indices)
 
 
 ElementBuffer::ElementBuffer(const std::vector<TriangleIndices>& indices)
+	: m_RendererID(0)
+	, m_NumElements(indices.size() * 3)
 {
 	glGenBuffers(1, &m_RendererID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);

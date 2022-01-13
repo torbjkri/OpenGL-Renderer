@@ -94,10 +94,11 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 		//	vertex.TexCoords = glm::vec2(0.0f, 0.0f);
 	}
 
+	int cnt = 0;
 	// Iterate over all faces and extract their indexes
 	for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
 		auto face = mesh->mFaces[i];
-
+		cnt++;
 		// Using triangulate postprocess flag, so this should be ok
 		indices.emplace_back(
 			TriangleIndices{{
@@ -105,6 +106,10 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 			}}
 		);
 	}
+
+	/*
+		TODO: Implement material following the object
+	*/
 
 	// Keep this for future use
 	//// process materials

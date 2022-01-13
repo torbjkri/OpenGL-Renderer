@@ -30,10 +30,11 @@ Mesh::Mesh(std::vector<PositionVertex>& vertices, std::vector<TriangleIndices>& 
 }
 
 void Mesh::Render(Shader* shader, const glm::mat4 scene_state)
-{
+{ 
 	vao_.Bind();
 	shader->Bind();
 	shader->SetUniform4fv("u_Color", 1, glm::vec4(0.3f, 1.0f, 0.2f, 1.0f));
 	shader->SetUniformMatrix4fv("u_ProjectionViewModel", 1, scene_state);
 	glDrawElements(GL_TRIANGLES, ebo_.NumElements(), GL_UNSIGNED_INT, 0);
+	glFinish();
 }

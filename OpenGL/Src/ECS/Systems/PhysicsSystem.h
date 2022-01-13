@@ -32,10 +32,13 @@ public:
 			auto& transform = m_ParentScene->GetComponent<Transform>(entity);
 			auto& velocity = m_ParentScene->GetComponent<Velocity>(entity);
 
-			velocity.velocity_ += gravity.force_ * dt;
+			velocity.linear_ += gravity.force_ * dt;
 
 			transform.prev_state_ = transform.curr_state_;
-			transform.curr_state_.position_ += velocity.velocity_ * dt;
+			transform.curr_state_.position_ += velocity.linear_ * dt;
+			transform.curr_state_.orientation_ += velocity.angular_ * dt;
+
+
 
 		}
 	}
