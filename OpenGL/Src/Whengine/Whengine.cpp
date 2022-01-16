@@ -15,6 +15,8 @@
 #include "ECS/Systems/PhysicsSystem.h"
 #include "ECS/Systems/CollisionSystem.h"
 
+#include "Utilities/Timer.h"
+
 #include <memory>
 #include <cstdlib>
 #include <ctime>
@@ -137,14 +139,15 @@ namespace WE {
 void Whengine::Run()
 {
 	/*Get/Handle inputs*/
+	Timer timer(1000);
 	while (!m_Context->ShouldClose()) {
 		m_Context->BeginFrame();
 		//m_InputHandler->ProcessInput();
-		m_Scene->Update(0.01f);
+		m_Scene->Update(timer.GetDeltaTime());
 		m_Scene->RenderScene();
 		m_Context->EndFrame();
 
-		// TODO: Chrono timing
+		timer.Tick();
 	}
 
 	/*Update scene */

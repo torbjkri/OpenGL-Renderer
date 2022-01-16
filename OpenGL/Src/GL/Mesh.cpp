@@ -22,7 +22,7 @@ Mesh::Mesh(std::vector<PositionVertex>& vertices, std::vector<TriangleIndices>& 
 	vbo_.Bind();
 	ebo_.Bind();
 
-	vao_.LinkAttrib(vbo_, 0, 3, GL_FLOAT, sizeof(PositionVertex), (void*)offsetof(PositionVertex, m_VertexPosition));
+	vao_.LinkAttrib(vbo_, 0, 3, GL_FLOAT, sizeof(PositionVertex), (void*)offsetof(PositionVertex, position_));
 
 	vao_.Unbind();
 	vbo_.Unbind();
