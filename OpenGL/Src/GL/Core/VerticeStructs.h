@@ -2,23 +2,22 @@
 
 #include <glm/glm.hpp>
 
-// TODO Change naming, dont need vertex at every step
 struct PositionVertex {
-	glm::vec3 m_VertexPosition;
+	glm::vec3 position_;
 };
 
 struct PositionNormalVertex {
-	glm::vec3 m_VertexPosition;
-	glm::vec3 m_VertexNormal;
+	glm::vec3 position_;
+	glm::vec3 normal_;
 };
 
 struct PositionTextureNormalVertex {
-	glm::vec3 m_VertexPosition;
-	glm::vec2 m_TexturePosition;
-	glm::vec3 m_VertexNormal;
+	glm::vec3 position_;
+	glm::vec2 texture_position_;
+	glm::vec3 normal_;
 };
 
 // TODO : Make typedef instead or something
 struct TriangleIndices {
-	glm::ivec3 m_Indices;
+	glm::ivec3 indices_;
 };
