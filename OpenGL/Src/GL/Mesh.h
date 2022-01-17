@@ -8,6 +8,8 @@
 
 #include "GL/Core/Shader.h"
 
+#include "Material.h"
+
 #include <vector>
 
 
@@ -17,11 +19,12 @@ class Mesh
 public:
 	VertexArray vao_;
 
-	Mesh(std::vector<PositionVertex>& vertices, std::vector<TriangleIndices>& indices);
-	void Render(Shader* shader, const glm::mat4 scene_state);
+	Mesh(std::vector<PositionNormalVertex>& vertices, std::vector<TriangleIndices>& indices, Material material);
+	void Render(Shader* shader, const glm::mat4 projectioview, const glm::mat4 model);
 
 private:
 	VertexBuffer vbo_;
 	ElementBuffer ebo_;
+	Material material_;
 };
 

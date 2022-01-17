@@ -10,8 +10,8 @@ struct RenderableModel
 	std::shared_ptr<Model> model_;
 	std::shared_ptr<Shader> shader_;
 
-	void Render(const glm::mat4 scene_state)
+	void Render(const glm::mat4 projectioview, const glm::mat4 model)
 	{
-		model_->Render(shader_.get(), scene_state);
+		model_->Render(shader_.get(), projectioview, model);
 	}
 };

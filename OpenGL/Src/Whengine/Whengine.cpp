@@ -44,6 +44,7 @@ namespace WE {
 		/* Load scene */
 		{
 			std::shared_ptr<Model> model = std::make_shared<Model>("C:/Users/torbj/Documents/Blender/GLModels/blank-ball/blank-ball.obj");
+			//std::shared_ptr<Model> model = std::make_shared<Model>("Resources/Models/backpack/backpack.obj");
 
 			std::shared_ptr<Shader> shader = std::make_shared<Shader>("Resources/Shaders/Basic/BasicColor.shader");
 

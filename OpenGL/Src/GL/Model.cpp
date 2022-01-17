@@ -1,6 +1,7 @@
 #include "Model.h"
 
 #include "GL/Core/VerticeStructs.h"
+#include "Material.h"
 
 #include <iostream>
 #include <vector>
@@ -8,6 +9,7 @@
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
+#include "assimp/material.h"
 
 #include <string>
 
@@ -16,10 +18,10 @@ Model::Model(const std::string path)
 	LoadModel(path);
 }
 
-void Model::Render(Shader* shader, const glm::mat4 scene_state)
+void Model::Render(Shader* shader, const glm::mat4 projectioview, const glm::mat4 model)
 {
 	for (auto& mesh : m_Meshes)
-		mesh.Render(shader, scene_state);
+		mesh.Render(shader, projectioview, model);
 }
 
 void Model::LoadModel(const std::string path)
@@ -59,7 +61,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, const std::string& d
 
 Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& directory)
 {
-	std::vector<PositionVertex> vertices;
+	std::vector<PositionNormalVertex> vertices;
 	std::vector<TriangleIndices> indices;
 
 	// Iterate over vertices and store them
@@ -67,7 +69,9 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 
 		// I always assume we have normals
 		vertices.emplace_back(
-			PositionVertex{ {mesh->mVertices[i].x, mesh->mVertices[i].y , mesh->mVertices[i].z } }
+			PositionNormalVertex{
+				{mesh->mVertices[i].x, mesh->mVertices[i].y , mesh->mVertices[i].z },
+				{mesh->mNormals[i].x, mesh->mNormals[i].y , mesh->mNormals[i].z }}
 		);
 
 		// Just keeping this until I actually need it
@@ -111,6 +115,19 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 		TODO: Implement material following the object
 	*/
 
+
+	//material->Get(
+
+	//auto return = material->Get(AI_MATKEY_COLOR_DIFFUSE, ai, )
+
+	Material material = LoadMaterial(scene->mMaterials[mesh->mMaterialIndex]);
+
+	/*
+	TODO: Create material class
+		- Simple first
+	*/
+
+
 	// Keep this for future use
 	//// process materials
 	//aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
@@ -135,5 +152,28 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 	//textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
 	
-	return Mesh(vertices, indices);
+	return Mesh(vertices, indices, material);
 }
+
+Material Model::LoadMaterial(const aiMaterial* material)
+{
+	aiColor3D ambient_color;
+	aiColor3D diffuse_color;
+	aiColor3D specular_color;
+	float shininess;
+
+	material->Get(AI_MATKEY_COLOR_AMBIENT, ambient_color);
+	material->Get(AI_MATKEY_COLOR_DIFFUSE, diffuse_color);
+	material->Get(AI_MATKEY_COLOR_SPECULAR, specular_color);
+	material->Get(AI_MATKEY_SHININESS, shininess);
+
+	auto aiToGlm = [](aiColor3D v) {return glm::vec3(v.r , v.g, v.b); };
+
+	return Material{
+					.ambient_ = aiToGlm(ambient_color),
+					.diffuse_ = aiToGlm(diffuse_color),
+					.specular_ = aiToGlm(specular_color),
+					.shininess_ = shininess
+	};
+}
+

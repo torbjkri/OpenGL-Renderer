@@ -30,7 +30,7 @@ Texture::Texture(const std::string filePath, const TextureType type)
 	, m_Height(0)
 {
 	stbi_set_flip_vertically_on_load(true);
-	auto absPath = fs::current_path().string() + "\\" + filePath;
+	auto absPath = fs::current_path().string() + "/" + filePath;
 	int n;
 	unsigned char* data = stbi_load(absPath.c_str(), &m_Width, &m_Height, &n, 0);
 	assert(data);

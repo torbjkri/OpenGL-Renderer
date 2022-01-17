@@ -172,6 +172,7 @@
     <ClCompile Include="Src\GL\Camera.cpp" />
     <ClCompile Include="Src\GL\Core\ElementBuffer.cpp" />
     <ClCompile Include="Src\GL\InputHandler.cpp" />
+    <ClCompile Include="Src\GL\Material.cpp" />
     <ClCompile Include="Src\GL\Mesh.cpp" />
     <ClCompile Include="Src\GL\Model.cpp" />
     <ClCompile Include="Src\GL\ResourceManager.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Src\GL\Command.h" />
     <ClInclude Include="Src\GL\Core\ElementBuffer.h" />
     <ClInclude Include="Src\GL\InputHandler.h" />
+    <ClInclude Include="Src\GL\Material.h" />
     <ClInclude Include="Src\GL\Mesh.h" />
     <ClInclude Include="Src\GL\Model.h" />
     <ClInclude Include="Src\GL\ResourceManager.h" />

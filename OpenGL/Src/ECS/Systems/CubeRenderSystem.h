@@ -111,7 +111,7 @@ public:
 			auto& renderable = m_ParentScene->GetComponent<RenderableModel>(entity);
 			auto& transform = m_ParentScene->GetComponent<Transform>(entity);
 			
-			renderable.Render(m_ParentScene->GetSceneProjectionView()* transform.CreateModelMatrix());
+			renderable.Render(m_ParentScene->GetSceneProjectionView(), transform.CreateModelMatrix());
 		}
 	}
 };
