@@ -69,7 +69,7 @@
     <ClCompile Include="Src\GL\Core\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\ResourceManager.cpp">
+    <ClCompile Include="Src\Whengine\Resources\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Whengine\Whengine.cpp">
@@ -87,16 +87,16 @@
     <ClCompile Include="Src\ECS\Components\RenderableBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Model.cpp">
+    <ClCompile Include="Src\Whengine\Resources\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Mesh.cpp">
+    <ClCompile Include="Src\Whengine\Resources\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Utilities\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GL\Material.cpp">
+    <ClCompile Include="Src\Whengine\Resources\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,7 +158,7 @@
     <ClInclude Include="Src\GL\Core\VerticeStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\ResourceManager.h">
+    <ClInclude Include="Src\Whengine\Resources\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Whengine\Whengine.h">
@@ -224,10 +224,10 @@
     <ClInclude Include="Src\ECS\Components\RenderableBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Model.h">
+    <ClInclude Include="Src\Whengine\Resources\Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Mesh.h">
+    <ClInclude Include="Src\Whengine\Resources\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\ECS\Components\RenderableModel.h">
@@ -236,7 +236,10 @@
     <ClInclude Include="Src\Utilities\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GL\Material.h">
+    <ClInclude Include="Src\Whengine\Resources\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Whengine\Resources\ResourceLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

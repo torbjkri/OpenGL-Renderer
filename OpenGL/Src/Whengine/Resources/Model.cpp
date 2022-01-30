@@ -122,11 +122,6 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const std::string& d
 
 	Material material = LoadMaterial(scene->mMaterials[mesh->mMaterialIndex]);
 
-	/*
-	TODO: Create material class
-		- Simple first
-	*/
-
 
 	// Keep this for future use
 	//// process materials

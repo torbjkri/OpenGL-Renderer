@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include <glm/vec4.hpp>
+#include <glm/glm.hpp>
 
 #include <GLFW/glfw3.h>
 
@@ -37,11 +37,13 @@ void Mesh::Render(Shader* shader, const glm::mat4 projectioview, const glm::mat4
 	/*
 	TODO: CURRENT STATUS: Need light values
 	*/
+
+	static int i = 0;
 	vao_.Bind();
 	material_.Bind(shader);
 	shader->Bind();
 	shader->SetUniform3f("u_ViewPos", glm::vec3(0.0f, 0.0f, 5.0f));
-	shader->SetUniform3f("u_Light.position", glm::vec3(0.0f, 3.0f, 5.0f));
+	shader->SetUniform3f("u_Light.position", glm::vec3(5.0f * glm::cos(glm::radians(360 * static_cast<float>(i++) / 650.0f)), 5.0f * glm::cos(glm::radians(360 * static_cast<float>(i++) / 300.0f)), 5.0f));
 	shader->SetUniform3f("u_Light.ambient", glm::vec3(0.2f, 0.2f, 0.2f));
 	shader->SetUniform3f("u_Light.diffuse", glm::vec3(0.5f, 0.5f, 0.5f));
 	shader->SetUniform3f("u_Light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
