@@ -6,6 +6,7 @@
 #include "ECS/Core/EntityManager.h"
 #include "ECS/Core/ComponentManager.h"
 #include "ECS/Core/System.h"
+
 #include "ECS/Components/Transform.h"
 #include "ECS/Components/RenderableCube.h"
 #include "ECS/Components/Gravity.h"
@@ -14,6 +15,10 @@
 #include "ECS/Systems/CubeRenderSystem.h"
 #include "ECS/Systems/PhysicsSystem.h"
 #include "ECS/Systems/CollisionSystem.h"
+
+#include "Resources/ResourceManager.h"
+#include "Resources/Model.h"
+
 
 #include "Utilities/Timer.h"
 

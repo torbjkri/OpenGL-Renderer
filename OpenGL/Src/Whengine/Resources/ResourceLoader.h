@@ -2,7 +2,7 @@
 #include <string>
 #include <memory>
 
-namespace Whegine
+namespace WE
 {
 	template <typename T>
 	std::shared_ptr<T> Load(const std::string filepath)

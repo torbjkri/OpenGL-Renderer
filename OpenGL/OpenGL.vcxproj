@@ -175,7 +175,6 @@
     <ClCompile Include="Src\Whengine\Resources\Material.cpp" />
     <ClCompile Include="Src\Whengine\Resources\Mesh.cpp" />
     <ClCompile Include="Src\Whengine\Resources\Model.cpp" />
-    <ClCompile Include="Src\Whengine\Resources\ResourceManager.cpp" />
     <ClCompile Include="Src\GL\Core\Shader.cpp" />
     <ClCompile Include="Src\GL\Core\Texture.cpp" />
     <ClCompile Include="Src\GL\Core\VertexArray.cpp" />

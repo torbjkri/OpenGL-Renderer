@@ -12,19 +12,21 @@
 
 #include <vector>
 
+namespace WE {
+	// TODO: Should Meshes be registered with a resource manager?
+	class Mesh
+	{
+	public:
+		VertexArray vao_;
 
-// TODO: Should Meshes be registered with a resource manager?
-class Mesh
-{
-public:
-	VertexArray vao_;
+		Mesh(std::vector<PositionNormalVertex>& vertices, std::vector<TriangleIndices>& indices, Material material);
+		void Render(Shader* shader, const glm::mat4 projectioview, const glm::mat4 model);
 
-	Mesh(std::vector<PositionNormalVertex>& vertices, std::vector<TriangleIndices>& indices, Material material);
-	void Render(Shader* shader, const glm::mat4 projectioview, const glm::mat4 model);
+	private:
+		VertexBuffer vbo_;
+		ElementBuffer ebo_;
+		Material material_;
+	};
 
-private:
-	VertexBuffer vbo_;
-	ElementBuffer ebo_;
-	Material material_;
-};
+}
 

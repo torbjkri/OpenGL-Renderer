@@ -69,9 +69,6 @@
     <ClCompile Include="Src\GL\Core\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Whengine\Resources\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Whengine\Whengine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

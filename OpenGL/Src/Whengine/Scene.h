@@ -15,10 +15,14 @@
 #include "ECS/Components/Gravity.h"
 #include "ECS/Components/Velocity.h"
 
+#include "Resources/ResourceManager.h"
+
 namespace WE {
 
 class Scene {
 private:
+	std::unique_ptr<ResourceManager> m_ResourceManager;
+
 	std::unique_ptr<EntityManager> m_EntityManager;
 	std::unique_ptr<ComponentManager> m_ComponentManager;
 	std::vector<std::unique_ptr<RenderSystem>> m_RenderSystems;
@@ -34,6 +38,12 @@ public:
 	//Maybe not needed
 	void RenderScene();
 	void Update(const float dt);
+
+	// Resource manager
+	ResourceManager* GetResourceManager()
+	{
+		return m_ResourceManager.get();
+	}
 
 	// Entity functions
 	Entity CreateEntity();

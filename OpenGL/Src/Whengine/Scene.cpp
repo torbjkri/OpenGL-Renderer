@@ -6,15 +6,21 @@
 
 #include "ECS/Core/ComponentManager.h"
 #include "ECS/Core/EntityManager.h"
-#include "ECS/Core/System.h"
+#include "ECS/Core/System.h"]
+
+#include "Resources/ResourceManager.h"
+#include "Resources/SceneLoader.h"
 
 namespace WE {
 
 	Scene::Scene()
-		: m_EntityManager(new EntityManager())
+		: m_ResourceManager(new ResourceManager())
+		, m_EntityManager(new EntityManager())
 		, m_ComponentManager(new ComponentManager())
 		, m_ProjectionView(1.0f)
 	{
+		LoadScene(m_ResourceManager.get());
+
 		glm::vec3 position = glm::vec3( 0.0f, 0.0f, 5.0f );
 		glm::vec3 orientation = glm::vec3( 0.0f, 0.0f, -1.0f );
 		glm::vec3 up = glm::vec3( 0.0f, 1.0f, 0.0f );
